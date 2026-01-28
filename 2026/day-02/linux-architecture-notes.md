@@ -81,9 +81,11 @@ In production, most issues are solved using systemd logs and status.
 
 - `ps aux` → list running processes
 - `top` → check CPU and memory usage
-- `systemctl status service-name`
-- `journalctl -u service-name`
+- `systemctl status service-name` → show status of service
+- `free` → show memory
 - `kill PID` / `kill -9 PID`
+- `df -h` → show disk space
+- `ls -l` → lists files and directories in long format showing permissions
 
 ---
 
