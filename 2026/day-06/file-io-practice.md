@@ -71,7 +71,7 @@ What it did:
 
 ## 📸 Command Output Screenshot
 <br/>
-![Screenshot](./2026/day-06/day-06.JPG)
+![File IO Practice Output](./2026/day-06/day-06.JPG)
 
 ![File IO Practice Output](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/49df5bca599c5de1359826098a88fb35b2751656/2026/day-06/day-06.JPG)
 
