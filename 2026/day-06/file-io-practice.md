@@ -70,7 +70,7 @@ What it did:
 ---
 
 ## 📸 Command Output Screenshot
-[File IO Practice](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8b8b7f6e546d2ca2575b753b968e34962f975081/2026/day-06/day-06.JPG)
+
 ![File IO Practice Output](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/49df5bca599c5de1359826098a88fb35b2751656/2026/day-06/day-06.JPG)
 
 
