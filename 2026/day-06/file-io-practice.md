@@ -68,3 +68,4 @@ What it did:
 - Showed last 2 lines of the file
 
 ---
+![File IO Practice Output](day-o6.jpg)
