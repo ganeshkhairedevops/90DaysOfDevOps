@@ -72,7 +72,7 @@ What it did:
 
 ## 📸 Command Output Screenshot
 
-![File IO Practice Output](./day-06.jpg)
+![File IO Practice Output](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/49df5bca599c5de1359826098a88fb35b2751656/2026/day-06/day-06.JPG)
 
 
 
