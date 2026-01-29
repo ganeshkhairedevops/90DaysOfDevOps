@@ -80,3 +80,6 @@ Observation:
 ## 📸 Command Output Screenshot
 
 ![linux practice](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/88a37de07fc95c24da75fd12d7844f59b85c9b96/2026/day-04/day4%20systemctl.JPG)
+
+
+![linux practice](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a4fef5450084fc85fe06f8913c27b9bb7cf5bbc9/2026/day-04/day4.JPG)
