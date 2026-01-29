@@ -68,3 +68,4 @@ What it did:
 - Showed last 2 lines of the file
 
 ---
+![day-06](2026/day-06/day-06.JPG)
