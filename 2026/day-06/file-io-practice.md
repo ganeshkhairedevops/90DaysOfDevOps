@@ -68,4 +68,5 @@ What it did:
 - Showed last 2 lines of the file
 
 ---
+<img src="2026/day-06/day-06.JPG" />
 ![day-06](2026/day-06/day-06.JPG)
