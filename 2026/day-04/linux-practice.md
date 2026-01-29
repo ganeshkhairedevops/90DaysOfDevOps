@@ -77,3 +77,6 @@ Observation:
 
 ---
 
+## 📸 Command Output Screenshot
+
+![linux practice](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/88a37de07fc95c24da75fd12d7844f59b85c9b96/2026/day-04/day4%20systemctl.JPG)
