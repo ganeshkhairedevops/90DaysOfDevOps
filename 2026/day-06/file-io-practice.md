@@ -68,5 +68,6 @@ What it did:
 - Showed last 2 lines of the file
 
 ---
-![File IO Practice Output](https://raw.githubusercontent.com/ganeshkhairedevops/90DaysOfDevOps/master/2026/day-06/day-06.jpg)
+![File IO Practice Output](./day-06.jpg)
+
 
