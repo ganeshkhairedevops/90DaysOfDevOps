@@ -68,7 +68,6 @@ What it did:
 - Showed last 2 lines of the file
 
 ---
----
 
 ## 📸 Command Output Screenshot
 
