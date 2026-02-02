@@ -34,7 +34,8 @@ vim -R script.sh
 head -n 5 /etc/passwd or cat /etc/passwd | head -n 5
 tail -n 5 /etc/passwd r cat /etc/passwd | tail -n 5
 ```
-
+---
+![task 1 and 2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/9bca09082900857d34a727cb56964642ff291045/2026/day-10/images/task1%2C2.jpg)
 ---
 
 ## Task 3: Understand Permissions
@@ -42,7 +43,8 @@ tail -n 5 /etc/passwd r cat /etc/passwd | tail -n 5
 ```bash
 ls -l devops.txt notes.txt script.sh
 ```
-
+---
+![task 3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/9bca09082900857d34a727cb56964642ff291045/2026/day-10/images/task%203.jpg)
 ---
 
 ## Task 4: Modify Permissions
@@ -56,7 +58,8 @@ mkdir project
 chmod 755 project
 ls -l
 ```
-
+---
+![task 4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/9bca09082900857d34a727cb56964642ff291045/2026/day-10/images/task%204.jpg)
 ---
 
 ## Task 5: Test Permissions
