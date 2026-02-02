@@ -58,10 +58,15 @@ Link:
 ssh, apt, systemctl, docker, nginx, tail, cat, scp
 
 ---
+## other Screenshot
 
-## Challenges Faced
-- Port 80 blocked initially
-- Fixed by updating security group
+![cloud-server-setup](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/e7d3fb4b3b86d2e62d6403a81cb81a13d41e7ad5/2026/day-08/images/server.jpg)
+
+![copy file](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/e7d3fb4b3b86d2e62d6403a81cb81a13d41e7ad5/2026/day-08/images/scp.jpg)
+
+![nginx service](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/e7d3fb4b3b86d2e62d6403a81cb81a13d41e7ad5/2026/day-08/images/nginx%20service.jpg)
+
+![nginx logs](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/e7d3fb4b3b86d2e62d6403a81cb81a13d41e7ad5/2026/day-08/images/nginx%20logs.jpg)
 
 ---
 
