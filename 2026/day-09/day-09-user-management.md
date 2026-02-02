@@ -37,7 +37,7 @@ ls -l /home
 ```
 ---
 Screenshot
-
+![Create users](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/28b69560c2911f835528c0af9ddb4135c212b2e9/2026/day-09/images/user.JPG)
 ---
 
 ## Task 2: Create Groups
@@ -48,6 +48,9 @@ sudo groupadd admins
 Verification:
 cat /etc/group | grep -E "developers|admins"
 ```
+---
+Screenshot
+![Create groups](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/28b69560c2911f835528c0af9ddb4135c212b2e9/2026/day-09/images/group.JPG)
 ---
 
 ## Task 3: Assign Users to Groups
@@ -68,6 +71,9 @@ or
 cat /etc/group
 ```
 ---
+Screenshot
+![Assign users to groups](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/28b69560c2911f835528c0af9ddb4135c212b2e9/2026/day-09/images/add%20users%20in%20groups.JPG)
+---
 
 
 ## Task 4: Shared Directory
@@ -81,6 +87,9 @@ Test:
 sudo -u tokyo touch /opt/dev-project/tokyo-file.txt
 sudo -u berlin touch /opt/dev-project/berlin-file.txt
 ```
+---
+Sreenshot
+![Permission](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/28b69560c2911f835528c0af9ddb4135c212b2e9/2026/day-09/images/permission.JPG)
 ---
 
 ## Task 5: Team Workspace
@@ -100,6 +109,12 @@ Test:
 ```bash
 sudo -u nairobi touch /opt/team-workspace/nairobi-file.txt
 ```
+---
+
+Screenshot
+![Team workspace](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/28b69560c2911f835528c0af9ddb4135c212b2e9/2026/day-09/images/nirobi.JPG)
+
+![Permission](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/28b69560c2911f835528c0af9ddb4135c212b2e9/2026/day-09/images/permission1.JPG)
 ---
 
 ## What I Learned
