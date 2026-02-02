@@ -81,8 +81,9 @@ sudo mkdir /opt/dev-project
 sudo chgrp developers /opt/dev-project
 sudo chmod 775 /opt/dev-project
 ```
-```bash
+
 Test:
+```bash
 sudo -u tokyo touch /opt/dev-project/tokyo-file.txt
 sudo -u berlin touch /opt/dev-project/berlin-file.txt
 ```
