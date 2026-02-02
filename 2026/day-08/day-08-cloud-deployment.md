@@ -16,7 +16,8 @@ security groups, and basic log handling.
 ### Connect via SSH
 ssh -i "nginx.pem" ubuntu@ec2-3-93-68-102.compute-1.amazonaws.com
 
-Screenshot: ssh-connection.png
+Screenshot: ssh-connection
+![ssh-connection](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c6cc203e8d53a83b867da3e2a201ecd2f09a4933/2026/day-08/ssh-connection.jpg)
 
 ---
 
