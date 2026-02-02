@@ -39,8 +39,8 @@ systemctl status nginx
 - Allowed ports 22 and 80
 - Accessed http://3.93.68.102 in browser
 
-Screenshot: nginx-webpage.png
-
+Screenshot: nginx-webpage
+![nginx-webpage](2026/day-08/nginx-webpage.jpg)
 ---
 
 ## Part 4: Extract Nginx Logs
