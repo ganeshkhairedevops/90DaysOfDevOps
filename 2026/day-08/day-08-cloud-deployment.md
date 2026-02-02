@@ -40,7 +40,7 @@ systemctl status nginx
 - Accessed http://3.93.68.102 in browser
 
 Screenshot: nginx-webpage
-![nginx-webpage](2026/day-08/nginx-webpage.jpg)
+![nginx-webpage](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/2f25c87bce7dcbc460f368ebe0f77a9983672ecc/2026/day-08/nginx-webpage.jpg)
 ---
 
 ## Part 4: Extract Nginx Logs
@@ -50,7 +50,8 @@ sudo cat /var/log/nginx/access.log > nginx-logs.txt
 
 scp -i nginx.pem ubuntu@3.93.68.102:~/nginx-logs.txt .
 
-
+Screenshot:
+![nginx-logs](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/2f25c87bce7dcbc460f368ebe0f77a9983672ecc/2026/day-08/nginx-logs.txt)
 ---
 
 ## Commands Used
