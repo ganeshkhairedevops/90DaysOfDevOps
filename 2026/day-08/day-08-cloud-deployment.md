@@ -50,7 +50,7 @@ sudo cat /var/log/nginx/access.log > nginx-logs.txt
 
 scp -i nginx.pem ubuntu@3.93.68.102:~/nginx-logs.txt .
 
-Screenshot:
+Link:
 ![nginx-logs](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/2f25c87bce7dcbc460f368ebe0f77a9983672ecc/2026/day-08/nginx-logs.txt)
 ---
 
