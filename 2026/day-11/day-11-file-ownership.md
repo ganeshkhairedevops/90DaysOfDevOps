@@ -39,7 +39,7 @@ sudo groupadd heist-team
 sudo chgrp heist-team team-notes.txt
 ls -l team-notes.txt
 ```
-
+![task 3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c03887075168a3edeedd908d887259c0515c00a4/2026/day-11/images/task%203.JPG)
 ---
 
 ## Task 4: Change Owner & Group Together
