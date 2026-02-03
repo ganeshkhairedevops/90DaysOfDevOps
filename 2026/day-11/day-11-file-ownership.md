@@ -28,7 +28,7 @@ sudo chown tokyo devops-file.txt
 sudo chown berlin devops-file.txt
 ls -l devops-file.txt
 ```
-![task 1,2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/tree/2a232cc2638ed81afb84ef2feb682ec6e23cf498/2026/day-11/images)
+![task 1,2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/3c6c1c9670c7795bbc0a483d8a0de7640e3fcd78/2026/day-11/images/task%201%2C2.JPG)
 ---
 
 ## Task 3: Basic chgrp Operations
@@ -39,7 +39,7 @@ sudo groupadd heist-team
 sudo chgrp heist-team team-notes.txt
 ls -l team-notes.txt
 ```
-
+![task 3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c03887075168a3edeedd908d887259c0515c00a4/2026/day-11/images/task%203.JPG)
 ---
 
 ## Task 4: Change Owner & Group Together
