@@ -28,7 +28,7 @@ sudo chown tokyo devops-file.txt
 sudo chown berlin devops-file.txt
 ls -l devops-file.txt
 ```
-![task 1,2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/tree/2a232cc2638ed81afb84ef2feb682ec6e23cf498/2026/day-11/images)
+![task 1,2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/3c6c1c9670c7795bbc0a483d8a0de7640e3fcd78/2026/day-11/images/task%201%2C2.JPG)
 ---
 
 ## Task 3: Basic chgrp Operations
