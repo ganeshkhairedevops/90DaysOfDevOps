@@ -74,6 +74,7 @@ chmod -x script.sh
 ---
 
 ## What I Learned
+
 - Permissions control access
 - Execute permission is required
 - chmod is critical in DevOps
