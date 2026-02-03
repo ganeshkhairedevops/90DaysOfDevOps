@@ -60,6 +60,7 @@ ls -l
 ```
 ---
 ![task 4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/9bca09082900857d34a727cb56964642ff291045/2026/day-10/images/task%204.jpg)
+
 ---
 
 ## Task 5: Test Permissions
