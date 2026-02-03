@@ -14,15 +14,16 @@ security groups, and basic log handling.
 - Assigned public IP
 
 ### Connect via SSH
+```bach
 ssh -i "nginx.pem" ubuntu@ec2-3-93-68-102.compute-1.amazonaws.com
-
+```
 Screenshot: ssh-connection
 ![ssh-connection](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c6cc203e8d53a83b867da3e2a201ecd2f09a4933/2026/day-08/ssh-connection.jpg)
 
 ---
 
 ## Part 2: Install Docker & Nginx
-
+```bash
 sudo apt update && sudo apt upgrade -y
 
 sudo apt install docker.io -y
@@ -31,7 +32,7 @@ sudo systemctl enable docker
 
 sudo apt install nginx -y
 systemctl status nginx
-
+```
 ---
 
 ## Part 3: Security Group Configuration
@@ -44,12 +45,12 @@ Screenshot: nginx-webpage
 ---
 
 ## Part 4: Extract Nginx Logs
-
+```bash
 sudo tail -n 50 /var/log/nginx/access.log
 sudo cat /var/log/nginx/access.log > nginx-logs.txt
 
 scp -i nginx.pem ubuntu@3.93.68.102:~/nginx-logs.txt .
-
+```
 Link:
 ![nginx-logs](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/2f25c87bce7dcbc460f368ebe0f77a9983672ecc/2026/day-08/nginx-logs.txt)
 ---
