@@ -52,6 +52,7 @@ mkdir app-logs
 sudo chown berlin:heist-team app-logs
 ls -ld app-logs
 ```
+![task 4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/ef465261c5c851699b21c9fc09e990dab797d675/2026/day-11/images/task%204.JPG)
 
 ---
 
@@ -67,7 +68,7 @@ sudo groupadd planners
 sudo chown -R professor:planners heist-project
 ls -lR heist-project
 ```
-
+![task 5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/ef465261c5c851699b21c9fc09e990dab797d675/2026/day-11/images/task%205.JPG)
 ---
 
 ## Task 6: Practice Challenge
@@ -91,7 +92,7 @@ sudo chown nairobi:vault-team bank-heist/escape-plan.txt
 
 ls -l bank-heist
 ```
-
+![task 6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/ef465261c5c851699b21c9fc09e990dab797d675/2026/day-11/images/task%206.JPG)
 ---
 
 ## What I Learned
