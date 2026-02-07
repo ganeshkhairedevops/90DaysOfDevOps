@@ -77,8 +77,8 @@ df -h /mnt/app-data
 Instead of creating the EC2 instance manually, I provisioned
 the cloud server using Terraform.
 
-![terraform apply]()
-![terraform destroy]()
+![terraform apply](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/d5fb5b6c90735f16b02d68c35d08053d847b0e39/2026/day-13/images/tfa.png)
+![terraform destroy](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/d5fb5b6c90735f16b02d68c35d08053d847b0e39/2026/day-13/images/tfd.jpg)
 
 ## Commands Used
 - dd
