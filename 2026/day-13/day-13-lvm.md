@@ -23,7 +23,7 @@ vgs
 lvs
 df -h
 ```
-![task 1]
+![task 1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/f5b50096a160479c3b9dd950a5fe70d5ef7aaab5/2026/day-13/images/task%201.jpg)
 ---
 
 ## Task 2: Create Physical Volume
@@ -32,7 +32,7 @@ df -h
 pvcreate /dev/xvdf
 pvs
 ```
-
+![task 2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/f5b50096a160479c3b9dd950a5fe70d5ef7aaab5/2026/day-13/images/task%202.jpg)
 ---
 
 ## Task 3: Create Volume Group
@@ -41,7 +41,7 @@ pvs
 vgcreate devops-vg /dev/xvdf
 vgs
 ```
-
+![task 3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/f5b50096a160479c3b9dd950a5fe70d5ef7aaab5/2026/day-13/images/task%203.jpg)
 ---
 
 ## Task 4: Create Logical Volume
@@ -50,7 +50,7 @@ vgs
 lvcreate -L 500M -n app-data devops-vg
 lvs
 ```
-
+![task 4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/f5b50096a160479c3b9dd950a5fe70d5ef7aaab5/2026/day-13/images/task%204.jpg)
 ---
 
 ## Task 5: Format and Mount
@@ -61,7 +61,7 @@ mkdir -p /mnt/app-data
 mount /dev/devops-vg/app-data /mnt/app-data
 df -h /mnt/app-data
 ```
-
+![task 5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/f5b50096a160479c3b9dd950a5fe70d5ef7aaab5/2026/day-13/images/task%205.jpg)
 ---
 
 ## Task 6: Extend Logical Volume
@@ -71,8 +71,14 @@ lvextend -L +200M /dev/devops-vg/app-data
 resize2fs /dev/devops-vg/app-data
 df -h /mnt/app-data
 ```
-
+![task 6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/f5b50096a160479c3b9dd950a5fe70d5ef7aaab5/2026/day-13/images/task%206.jpg)
 ---
+## Other Screenshots :
+Instead of creating the EC2 instance manually, I provisioned
+the cloud server using Terraform.
+
+![terraform apply]()
+![terraform destroy]()
 
 ## Commands Used
 - dd
