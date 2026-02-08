@@ -16,3 +16,72 @@ Mapping:
 - OSI L3 → Internet
 - OSI L4 → Transport
 - OSI L5–L7 → Application
+---
+
+## Hands-on Networking Checks
+
+Target: google.com
+
+### Identity
+```bash
+hostname -I
+```
+
+### Reachability
+```bash
+ping google.com
+```
+
+### Network Path
+```bash
+traceroute google.com
+```
+
+### Listening Ports
+```bash
+ss -tulpn
+```
+
+### DNS Resolution
+```bash
+dig google.com
+```
+
+### HTTP Check
+```bash
+curl -I https://google.com
+```
+
+### Connections Snapshot
+```bash
+netstat -an | head
+```
+
+---
+
+## Mini Task: Port Probe
+
+```bash
+nc -zv localhost 22
+```
+
+Observation:
+- SSH port reachable
+
+---
+
+## Reflection
+
+- Fastest signal: ping, curl
+- DNS failure → Application layer
+- HTTP 500 → Application issue
+
+Follow-up checks:
+- systemctl status <service>
+- journalctl -u <service>
+
+---
+
+## Key Takeaways
+- Layer-by-layer troubleshooting works
+- Simple commands give fast insight
