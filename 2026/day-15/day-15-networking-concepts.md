@@ -97,7 +97,7 @@ ss -tulpn
 ---
 
 ## Task 5: Putting It Together
-
+1. 
 - DNS resolves myapp.com to an IP
 - TCP connection on port 8080
 - HTTP request sent at application layer
@@ -106,7 +106,7 @@ curl http://myapp.com:8080:
 
 DNS → TCP → HTTP
 
-1. App can’t reach DB at 10.0.1.50:3306 — what to check first?
+2. App can’t reach DB at 10.0.1.50:3306 — what to check first?
 - Network reachability (ping / private IP range)
 - Port access (3306 open or not)
 - Database service status
