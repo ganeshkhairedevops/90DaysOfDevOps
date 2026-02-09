@@ -49,3 +49,76 @@ echo "Hello, I am $NAME and I am a $ROLE."
 - Single quotes (' ') → variables are NOT expanded
 - Double quotes (" ") → variables ARE expanded
 ---
+## Task 3: User Input with read
+
+### Script: greet.sh
+```bash
+#!/bin/bash
+read -p "Enter your name: " NAME
+read -p "Enter your favourite tool: " TOOL
+echo "Hello $NAME, your favourite tool is $TOOL."
+```
+### Steps to Run:
+1. Create the script file:
+   ```bash
+   nano greet.sh
+   ```
+2. Make it executable:
+   ```bash
+    chmod +x greet.sh
+    ./greet.sh
+   ```
+---
+## Task 4: If-Else Conditions
+### 1. Script: check_number.sh
+```bash
+#!/bin/bash
+
+read -p "Enter a number: " NUM
+
+if [ "$NUM" -gt 0 ]; then
+  echo "Number is positive"
+elif [ "$NUM" -lt 0 ]; then
+  echo "Number is negative"
+else
+  echo "Number is zero"
+fi
+
+```
+### 2. Script: file_check.sh
+```bash
+#!/bin/bash
+
+read -p "Enter a number: " NUM
+
+if [ "$NUM" -gt 0 ]; then
+  echo "Number is positive"
+elif [ "$NUM" -lt 0 ]; then
+  echo "Number is negative"
+else
+  echo "Number is zero"
+fi
+```
+---
+## Task 5: Combine It All
+### Script: server_check.sh
+```bash
+#!/bin/bash
+
+SERVICE="ssh"
+
+read -p "Do you want to check the service status? (y/n): " CHOICE
+
+if [ "$CHOICE" = "y" ]; then
+  systemctl status $SERVICE
+elif [ "$CHOICE" = "n" ]; then
+  echo "Skipped."
+else
+  echo "Invalid choice"
+fi
+```
+---
+## What I Learned
+- Shebang defines interpreter
+- Variables and read make scripts dynamic
+- if-else controls flow
