@@ -88,3 +88,10 @@ touch test.txt
 
 echo "Script completed successfully"
 ```
+---
+## What I Learned
+
+- Loops help automate repetitive tasks
+- Command-line arguments make scripts reusable
+- Error handling prevents silent failures
+- Root checks are critical for system-level scripts
