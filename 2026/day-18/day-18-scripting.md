@@ -28,6 +28,7 @@ add 10 20
 - `add` takes two arguments, calculates their sum, and prints the result.
 ---
 ![task 1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/18963c58a52d6243374f287fbd969b710a136db9/2026/day-18/images/task%201.jpg)
+
 ---
 ## Task 2: Functions with Return Values
 ### Script: disk_check.sh
@@ -51,6 +52,10 @@ main() {
 
 main
 ```
+---
+![task 2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/3137d629401004c6b7dc57dfd773a9cdb667ad66/2026/day-18/images/task%202.jpg)
+---
+
 ## Task 3: Strict Mode – set -euo pipefail
 ### Script: strict_demo.sh
 ```bash
@@ -68,6 +73,9 @@ echo "Strict mode enabled"
 - set -e → Script exits immediately if any command fails
 - set -u → Script fails when an undefined variable is used
 - set -o pipefail → Script fails if any command in a pipeline fails
+
+---
+![task 3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6107ba0894730cb4f24d5396361cb845cb3dd684/2026/day-18/images/task%203.jpg)
 
 ---
 ## Task 4:  Local Variables
@@ -90,6 +98,9 @@ echo "Outside: $VAR"
 ```
 - local variables do not leak outside the function
 - Global variables can be overwritten accidentally
+---
+![task 4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6107ba0894730cb4f24d5396361cb845cb3dd684/2026/day-18/images/task%204.jpg)
+---
 
 ## Task 5: System Info Reporter Script
 ### Script: system_info.sh
@@ -135,6 +146,8 @@ main() {
 
 main
 ```
+---
+![task 5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6107ba0894730cb4f24d5396361cb845cb3dd684/2026/day-18/images/task%205.JPG)
 ---
 ## What I Learned
 - Functions make scripts reusable and readable
