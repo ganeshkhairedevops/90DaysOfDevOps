@@ -75,6 +75,9 @@ echo "Strict mode enabled"
 - set -o pipefail → Script fails if any command in a pipeline fails
 
 ---
+![task 3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6107ba0894730cb4f24d5396361cb845cb3dd684/2026/day-18/images/task%203.jpg)
+
+---
 ## Task 4:  Local Variables
 ### Script: local_demo.sh
 ```bash
@@ -95,6 +98,9 @@ echo "Outside: $VAR"
 ```
 - local variables do not leak outside the function
 - Global variables can be overwritten accidentally
+---
+![task 4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6107ba0894730cb4f24d5396361cb845cb3dd684/2026/day-18/images/task%204.jpg)
+---
 
 ## Task 5: System Info Reporter Script
 ### Script: system_info.sh
@@ -140,6 +146,8 @@ main() {
 
 main
 ```
+---
+![task 5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6107ba0894730cb4f24d5396361cb845cb3dd684/2026/day-18/images/task%205.JPG)
 ---
 ## What I Learned
 - Functions make scripts reusable and readable
