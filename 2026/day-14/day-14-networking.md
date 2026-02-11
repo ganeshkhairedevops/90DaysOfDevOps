@@ -54,13 +54,20 @@ dig google.com
 ```bash
 curl -I https://google.com
 ```
+---
+![curl ](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/aad305f8e0af44e253bde18fea4de99cf5b84bd1/2026/day-14/images/curl.jpg)
+
+---
 
 ### Connections Snapshot
 ```bash
 netstat -an | head
 ```
+---
+![netstat ](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/aad305f8e0af44e253bde18fea4de99cf5b84bd1/2026/day-14/images/netstat.jpg)
 
 ---
+
 
 ## Mini Task: Port Probe
 
