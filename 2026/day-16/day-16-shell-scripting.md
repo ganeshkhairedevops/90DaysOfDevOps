@@ -25,6 +25,9 @@ echo Hello, Devops!
 - Without #!/bin/bash, the system doesn’t know which interpreter to use
 - Running ./hello.sh may fail or behave unexpectedly
 - Shebang ensures the script runs using Bash
+
+![task 1 ](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/566337d7c69129c40f967655b27f83bd3905f5eb/2026/day-16/images/task%201.jpg)
+
 ---
 ## Task 2: Variables
 
@@ -48,6 +51,7 @@ echo "Hello, I am $NAME and I am a $ROLE."
 ### Single quotes vs Double quotes
 - Single quotes (' ') → variables are NOT expanded
 - Double quotes (" ") → variables ARE expanded
+
 ---
 ## Task 3: User Input with read
 
