@@ -41,7 +41,10 @@ traceroute google.com
 ```bash
 ss -tulpn
 ```
+---
+![ss -tulpn](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0ff9b2c1db8d9f278cebffbc9780c344ab182f11/2026/day-14/images/ss-tulpn.jpg)
 
+---
 ### DNS Resolution
 ```bash
 dig google.com
