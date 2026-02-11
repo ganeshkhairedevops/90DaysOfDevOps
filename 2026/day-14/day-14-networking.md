@@ -41,23 +41,37 @@ traceroute google.com
 ```bash
 ss -tulpn
 ```
+---
+![ss -tulpn](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0ff9b2c1db8d9f278cebffbc9780c344ab182f11/2026/day-14/images/ss-tulpn.jpg)
 
+---
 ### DNS Resolution
 ```bash
 dig google.com
 ```
+---
+![dig ](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b3064064b6d7a824dec548fb1f47577ee39bf410/2026/day-14/images/dig.jpg)
+
+---
 
 ### HTTP Check
 ```bash
 curl -I https://google.com
 ```
+---
+![curl ](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/aad305f8e0af44e253bde18fea4de99cf5b84bd1/2026/day-14/images/curl.jpg)
+
+---
 
 ### Connections Snapshot
 ```bash
 netstat -an | head
 ```
+---
+![netstat ](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/aad305f8e0af44e253bde18fea4de99cf5b84bd1/2026/day-14/images/netstat.jpg)
 
 ---
+
 
 ## Mini Task: Port Probe
 
