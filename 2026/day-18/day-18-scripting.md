@@ -27,6 +27,8 @@ add 10 20
 - `greet` takes one argument and prints a greeting message.
 - `add` takes two arguments, calculates their sum, and prints the result.
 ---
+![task 1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/18963c58a52d6243374f287fbd969b710a136db9/2026/day-18/images/task%201.jpg)
+---
 ## Task 2: Functions with Return Values
 ### Script: disk_check.sh
 ```bash
