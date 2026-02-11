@@ -49,6 +49,10 @@ ss -tulpn
 ```bash
 dig google.com
 ```
+---
+![dig ](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b3064064b6d7a824dec548fb1f47577ee39bf410/2026/day-14/images/dig.jpg)
+
+---
 
 ### HTTP Check
 ```bash
