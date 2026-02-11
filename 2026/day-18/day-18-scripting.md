@@ -2,6 +2,7 @@
 
 Today I learned how to write cleaner and safer shell scripts using functions,
 strict mode, return values, and reusable patterns.
+
 ---
 ## Task 1: Basic Functions
 ### Script: functions.sh
