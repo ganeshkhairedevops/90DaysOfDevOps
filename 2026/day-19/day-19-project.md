@@ -33,6 +33,7 @@ find "$LOG_DIR" -name "*.gz" -mtime +30 -delete
 echo "Compressed files: $COMPRESSED"
 echo "Deleted files: $DELETED"
 ```
+![task 1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0287198824a60cdd065dc93befad0a7e34038f73/2026/day-19/images/task%201.jpg)
 ---
 ## Task 2: Server Backup Script
 
@@ -99,6 +100,7 @@ echo "----------------------------------------" >> "$LOGFILE"
 exit 0
 
 ```
+![task 2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0287198824a60cdd065dc93befad0a7e34038f73/2026/day-19/images/task%202.jpg)
 ---
 
 ## Task 3: Crontab
