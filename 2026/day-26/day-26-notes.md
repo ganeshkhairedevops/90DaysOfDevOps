@@ -73,14 +73,17 @@ gh repo clone owner/repo
 ---
 
 ## View repo details
+for example:
 
+gh repo view ganeshkhairedevops/devops-gh-test
+```bash
 gh repo view owner/repo
-
+```
 ---
 ## Open repo in browser
-
+```bash
 gh repo view --web
-
+```
 ---
 
 ## Delete repo
