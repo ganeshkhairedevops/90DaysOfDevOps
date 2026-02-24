@@ -41,6 +41,8 @@ Hello from my custom image!
 
 Verified successfully.
 
+![first-image](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/22b4e2006801a544a74a68f83b21cd909b2a1473/2026/day-31/images/task%201.jpg)
+
 ---
 
 # 📦 Task 2 – Dockerfile Instructions
@@ -73,6 +75,10 @@ RUN apt update && apt install -y curl
 EXPOSE 8080
 
 CMD ["cat", "app.txt"]
+
+---
+
+![task 2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/22b4e2006801a544a74a68f83b21cd909b2a1473/2026/day-31/images/task%202.jpg)
 
 ---
 
@@ -112,6 +118,8 @@ custom
 CMD is overridden by arguments passed at runtime.
 When you provide a command at runtime, Docker overrides the CMD instruction completely.
 
+![task 3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/22b4e2006801a544a74a68f83b21cd909b2a1473/2026/day-31/images/task%203.jpg)
+
 ---
 
 ## Dockerfile with ENTRYPOINT
@@ -134,6 +142,8 @@ Output:
 world
 
 ENTRYPOINT cannot be overridden easily — it always runs.
+
+![task 3.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/22b4e2006801a544a74a68f83b21cd909b2a1473/2026/day-31/images/task%203.1.jpg)
 
 ---
 
@@ -169,6 +179,8 @@ COPY index.html /usr/share/nginx/html/
 
 docker build -t my-website:v1 .
 
+![docker build](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/22b4e2006801a544a74a68f83b21cd909b2a1473/2026/day-31/images/task%204.jpg)
+
 ---
 
 ## Run Container
@@ -179,6 +191,8 @@ Access:
 http://localhost:85/index.html
 
 Verified custom webpage loads successfully.
+
+![docker](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/22b4e2006801a544a74a68f83b21cd909b2a1473/2026/day-31/images/task%204.1.jpg)
 
 ---
 
