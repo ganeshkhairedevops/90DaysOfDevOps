@@ -101,6 +101,8 @@ The output explained:
 - Pulled image from Docker Hub
 - Created container
 - Ran it successfully
+
+![Hello world](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93a80ee80acc3602122f4f7ca116a0aff43c1ca4/2026/day-29/images/task%202.jpg)
 ---
 # 🐳 Task 3 – Run Real Containers
 ## Run Nginx Container
@@ -108,12 +110,16 @@ The output explained:
 ```bash
 docker run -d -p 81:80 --name nginx nginx
 ```
+![nginx](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93a80ee80acc3602122f4f7ca116a0aff43c1ca4/2026/day-29/images/task%203.jpg)
+
 This command does the following:
 - `-d`: Run container in detached mode (in the background)
 - `-p 81:80`: Map host port 81 to container port 80
 - `--name nginx`: Name the container “nginx”
 - `nginx`: Use the nginx image from Docker Hub
 Now I can access the Nginx welcome page by navigating to `http://localhost:81` in my browser.
+
+![nginx1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93a80ee80acc3602122f4f7ca116a0aff43c1ca4/2026/day-29/images/task%203.1.jpg)
 
 ## Run Ubuntu Container
 ```bash
@@ -122,6 +128,7 @@ docker run -it ubuntu
 This command runs an interactive terminal (`-it`) in an Ubuntu container. I can now run commands inside the container, like `ls`, `pwd`, or `apt update`.
 To exit the container, I can type `exit`.
 
+![ubuntu](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93a80ee80acc3602122f4f7ca116a0aff43c1ca4/2026/day-29/images/task%203.2.jpg)
 ---
 ## List Running Containers
 ```bash
@@ -133,6 +140,9 @@ This command lists all currently running containers, showing their IDs, names, s
 docker ps -a
 ```
 This command lists all containers, including those that are stopped or exited.
+
+![ps](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93a80ee80acc3602122f4f7ca116a0aff43c1ca4/2026/day-29/images/task%203.3.jpg)
+
 ## Stop a Container
 ```bash
 docker stop nginx
