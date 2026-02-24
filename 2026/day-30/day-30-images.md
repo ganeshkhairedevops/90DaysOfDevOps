@@ -26,6 +26,8 @@ Observed:
 - alpine → 8.44 MB
 - nginx → 161 MB
 
+![docker images](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%201.jpg)
+
 ### Why is Alpine much smaller?
 
 - Alpine uses BusyBox and musl instead of glibc
@@ -59,6 +61,7 @@ This information is crucial for debugging and understanding image contents.
 docker rmi alpine
 ```
 Cannot remove if a container is using it.
+![docker remove](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%201.1.jpg)
 
 ---
 
@@ -73,6 +76,7 @@ Observed:
 - Some layers show size
 - Some show 0B
 
+![image history](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%202.jpg)
 
 ## What Are Layers?
 
@@ -114,6 +118,7 @@ docker create --name lifecycle-nginx nginx
 ```
 Status: Created
 
+![create](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%203.jpg)
 ---
 
 ## Start Container
@@ -122,6 +127,8 @@ docker start lifecycle-nginx
 ```
 Status: Up
 
+![docker start](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%203.1.jpg)
+
 ---
 
 ## Pause Container
@@ -129,6 +136,7 @@ Status: Up
 docker pause lifecycle-nginx
 ```
 Status: Paused
+![docker pause](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%203.2.jpg)
 
 ---
 
@@ -138,6 +146,8 @@ docker unpause lifecycle-nginx
 
 Status: Running
 
+![docker unpause](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%203.3.jpg)
+
 ---
 
 ## Stop
@@ -146,6 +156,8 @@ docker stop lifecycle-nginx
 ```
 Status: Exited
 
+![docker stop](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%203.4.jpg)
+
 ---
 
 ## Restart
@@ -153,12 +165,16 @@ Status: Exited
 docker restart lifecycle-nginx
 bash
 ```
+![docker restart](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%203.5.jpg)
+
 ---
 
 ## kill
 ```bash
 docker kill lifecycle-nginx
 ```
+![docker kill](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%203.6.jpg)
+
 ---
 
 ## Remove Container
@@ -181,12 +197,16 @@ docker run -d -p 8080:80 --name web nginx
 ```bash
 docker logs web
 ```
+![docker logs](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%204.jpg)
+
 ---
 
 ## Follow Logs (Real-Time)
 ```bash
 docker logs -f web
 ```
+![docker logs f](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%204.1.jpg)
+
 ---
 
 ## Exec into Container
@@ -198,6 +218,7 @@ Explored:
 - /etc
 - /usr/share/nginx/html
 
+![docker exec](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%204.2.jpg)
 
 ---
 
@@ -206,6 +227,7 @@ Explored:
 docker exec web ls /
 ```
 Runs command without interactive shell.
+![docker exec inside](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%204.3.jpg)
 
 ---
 
@@ -220,6 +242,11 @@ Found:
 - Mounted volumes
 - Network settings
 - Container state
+
+![inspect](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%204.4.jpg)
+
+
+![inspect network](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%204.5.jpg)
 
 ---
 
@@ -252,6 +279,8 @@ Shows:
 - Containers size
 - Volumes size
 - Build cache
+
+![docker cleanup](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/87006bdd3883ab13c7f8d2d679df0d31adb0b9fd/2026/day-30/images/task%205.jpg)
 
 ---
 
