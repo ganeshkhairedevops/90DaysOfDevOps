@@ -377,7 +377,7 @@ Default bridge does not support automatic DNS resolution by container name.
 # 🔗 Task 5 – Custom Network
 ## Create Custom Network
 ```bash
-docker network create my-network
+docker network create my-app-net
 ```
 Verify:
 ```bash
@@ -385,8 +385,8 @@ docker network ls
 ```
 ### Run Two Containers on my-network
 ```bash
-docker run -dit --name container1 --network my-network ubuntu
-docker run -dit --name container2 --network my-network ubuntu
+docker run -dit --name container1 --network my-app-net ubuntu
+docker run -dit --name container2 --network my-app-net ubuntu
 ```
 
 Install ping inside container1:
@@ -413,7 +413,7 @@ docker exec -it container1 ping <container2-ip>
 ✅ Worked
 ## Inspect Network
 ```bash
-docker network inspect my-network
+docker network inspect my-app-net
 ```
 Shows both containers connected to the custom network.
 ## Conclusion
