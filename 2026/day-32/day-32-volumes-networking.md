@@ -207,8 +207,9 @@ USE testdb;
 ```bash
 SELECT * FROM users;
 ```
+![task](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%202.3.jpg)
 
-![task2]()
+
 
 ✅ Data persisted successfully.
 
@@ -249,7 +250,7 @@ With volumes:
 This experiment demonstrated real-world data persistence in Docker.
 
 ---
-# 📸 Screenshots
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%202.1.jpg)
 
 ---
 # Task 3 – Bind Mounts
@@ -273,6 +274,8 @@ docker run -d \
   -v $(pwd):/usr/share/nginx/html \
   nginx
 ```
+![index](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%203.JPG)
+
 ---
 
 ## Step 3: Access in Browser
@@ -281,6 +284,8 @@ Access and check
 ```bash
 http://localhost:8082
 ```
+![access](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%203.1.JPG)
+
 Verified the custom HTML page is displayed.
 
 ---
@@ -290,7 +295,11 @@ Edit the index page
 ```bash
 echo "<h1>Bind Mount Successful Updated Content! </h1>" > index.html
 ```
+![update index](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%203.2.JPG)
+
 Refreshed browser → Changes reflected immediately.
+
+![update](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%203.3.JPG)
 
 ---
 
@@ -336,6 +345,9 @@ Inspect the default bridge network
 ```bash
 docker network inspect bridge
 ```
+![network](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%204.JPG)
+
+
 ## Run Two Containers on Default Bridge
 Run first container
 ```bash
@@ -357,6 +369,8 @@ apt install -y iputils-ping
 ```
 exit from the container
 
+![check](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%204.JPG)
+
 ## Check Connectivity
 it will not ping using by name
 ```bash
@@ -373,7 +387,7 @@ docker exec -it container1 ping <container2-ip>
 ```
 ✅ Worked
 
-![image]()
+![image](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%204.2.jpg)
 
 ---
 
@@ -393,6 +407,8 @@ Verify:
 ```bash
 docker network ls
 ```
+![custom network](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%205.JPG)
+
 ### Run Two Containers on my-network
 ```bash
 docker run -dit --name container1 --network my-app-net ubuntu
@@ -425,6 +441,8 @@ docker exec -it container1 ping <container2-ip>
 ```bash
 docker network inspect my-app-net
 ```
+![connect](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%205.1.JPG)
+
 Shows both containers connected to the custom network.
 ## Conclusion
 Containers on a user-defined bridge network can resolve each other by name because Docker provides an embedded DNS server for that network. This allows for easier communication between containers without needing to know their IP addresses.
@@ -436,6 +454,8 @@ Custom bridge networks have built-in DNS.
 Docker automatically resolves container names to IP addresses.
 
 Default bridge does not support automatic name resolution.
+
+![image](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%205.2.JPG)
 
 ---
 
@@ -466,8 +486,9 @@ docker run -itd \
 ```bash
 docker network inspect app-network
 ```
-![image]()
+![image](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%206.JPG)
 
+![image net](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%206.1.JPG)
 
 ## Verify the app container can reach the database by container name
 Exec into the my-app container:
@@ -486,6 +507,10 @@ Enter password: admin
 
 If it connects, your network setup works correctly.
 
+![image1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%206.2.JPG)
+
+![image2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fad745167bba0a8e404cd77f2d07ee8807a28ebe/2026/day-32/images/task%206.3.JPG)
+
 You can also ping the database container by name:
 but then need to install util in my-app container
 ```bash
@@ -496,3 +521,7 @@ then check ping
 ping my-mysql
 ```
 If you receive responses, it confirms that the containers can communicate using their names.
+
+---
+## Conclusion
+By using a custom network, we enabled seamless communication between our application and database containers using their names. This setup is essential for real-world applications, allowing services to discover and connect to each other without hardcoding IP addresses. Additionally, using volumes ensures that our database data persists across container restarts, making our infrastructure more resilient and reliable.
