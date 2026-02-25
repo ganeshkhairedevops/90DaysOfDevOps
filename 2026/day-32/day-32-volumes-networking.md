@@ -447,11 +447,42 @@ docker run -d \
 ```
 ## Run Application Container on Same Network
 ```bash
-docker run -d \
+docker run -itd \
   --name my-app \
   --network app-network \
   ubuntu
 ```
-## Test Connectivity
+## Verify both app in the same network
+```bash
+docker network inspect app-network
+```
+![image]()
+
+
+## Verify the app container can reach the database by container name
+Exec into the my-app container:
 ```bash
 docker exec -it my-app bash
+```
+Install mysql-client in my-app container
+```bash
+apt update && apt install -y mysql-client
+```
+Test connection to MySQL using the container name:
+```bash
+mysql -h my-mysql -u root -p
+```
+Enter password: admin
+
+If it connects, your network setup works correctly.
+
+You can also ping the database container by name:
+but then need to install util in my-app container
+```bash
+apt install -y iputils-ping
+```
+then check ping
+```bash
+ping my-mysql
+```
+If you receive responses, it confirms that the containers can communicate using their names.
