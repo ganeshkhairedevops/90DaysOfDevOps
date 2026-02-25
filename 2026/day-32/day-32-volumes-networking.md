@@ -17,6 +17,7 @@ docker run -d \
   -p 3306:3306 \
   mysql:latest
 ```
+![run](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/20292d9342f8b58088875c6faf1504061d904fb1/2026/day-32/images/task%201.jpg)
 
 ---
 
@@ -59,6 +60,9 @@ You should see:
 |  3 | kumar  |
 +----+--------+
 ```
+![connect](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/20292d9342f8b58088875c6faf1504061d904fb1/2026/day-32/images/task%201.1.jpg)
+
+![insert data](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/20292d9342f8b58088875c6faf1504061d904fb1/2026/day-32/images/task%201.2.jpg)
 
 ---
 
@@ -88,6 +92,8 @@ SHOW TABLES;
 
 ❌ The table was gone.
 
+![no data](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/20292d9342f8b58088875c6faf1504061d904fb1/2026/day-32/images/task%201.3.jpg)
+
 ---
 
 ## Why Did Data Disappear?
@@ -109,6 +115,8 @@ Verify:
 ```bash
 docker volume ls
 ```
+![volume](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/20292d9342f8b58088875c6faf1504061d904fb1/2026/day-32/images/task%202.jpg)
+
 ---
 
 ## Run MySQL with Volume Attached
@@ -199,6 +207,8 @@ USE testdb;
 ```bash
 SELECT * FROM users;
 ```
+
+![task2]()
 
 ✅ Data persisted successfully.
 
