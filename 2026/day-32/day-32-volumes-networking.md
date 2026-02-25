@@ -521,3 +521,7 @@ then check ping
 ping my-mysql
 ```
 If you receive responses, it confirms that the containers can communicate using their names.
+
+---
+## Conclusion
+By using a custom network, we enabled seamless communication between our application and database containers using their names. This setup is essential for real-world applications, allowing services to discover and connect to each other without hardcoding IP addresses. Additionally, using volumes ensures that our database data persists across container restarts, making our infrastructure more resilient and reliable.
