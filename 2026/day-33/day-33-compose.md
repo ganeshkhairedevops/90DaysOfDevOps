@@ -132,7 +132,7 @@ docker compose up -d
 ```
 ![task3.4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b4f6d70a21e64679ca22352e875bd948847932f5/2026/day-33/images/task%203.4.jpg)
 
-![task3.5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b4f6d70a21e64679ca22352e875bd948847932f5/2026/day-33/images/task%203.4.jpg)
+![task3.5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c89c13fe8a0336dc303cde40e47511dbbfdb42e8/2026/day-33/images/task%203.5.jpg)
 ---
 
 # 📘 Task 4 – Compose Commands
