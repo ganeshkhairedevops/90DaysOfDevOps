@@ -10,7 +10,7 @@ Instead of manually creating networks, volumes, and containers, Docker Compose a
 ```bash
 docker compose version
 ```
-![docker compose]()
+![docker compose](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b4f6d70a21e64679ca22352e875bd948847932f5/2026/day-33/images/task%201.png)
 
 If Docker compose not install
 install doceker compose.
@@ -39,18 +39,18 @@ services:
 ```bash
 docker compose up -d
 ```
-![docker]()
+![docker](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b4f6d70a21e64679ca22352e875bd948847932f5/2026/day-33/images/task%202.jpg)
 
 ## Verify the Application
 ```bash
 curl http://localhost:8080
 ```
-![nginx]()
+![nginx](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b4f6d70a21e64679ca22352e875bd948847932f5/2026/day-33/images/task%202.1.jpg)
 ## Stop the Application
 ```bash
 docker compose down
 ```
-![docker compose down]()
+![docker compose down](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b4f6d70a21e64679ca22352e875bd948847932f5/2026/day-33/images/task%202.2.jpg)
 
 ---
 
@@ -90,7 +90,7 @@ volumes:
 ```
 
 ## Create Environment Variables
-.env file
+Create .env file
 
 ```bash
 export MYSQL_ROOT_PASSWORD=your_password_here
@@ -102,21 +102,23 @@ export MYSQL_PASSWORD=your_password_here
 ```bash
 docker compose up -d
 ```
-![task3]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b4f6d70a21e64679ca22352e875bd948847932f5/2026/day-33/images/task%203.jpg)
 
 ## check same network 
 ```bash
 docker network ls
 docker network inspect <network_name>
 ```
-![task3.1]()
+![task3.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b4f6d70a21e64679ca22352e875bd948847932f5/2026/day-33/images/task%203.1.jpg)
 
 ## Verify the Application
 Open a web browser and navigate to `http://localhost:8080`. You should see the WordPress setup page.
 
-![task3.2]()
+![task3.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b4f6d70a21e64679ca22352e875bd948847932f5/2026/day-33/images/task%203.2.jpg)
 
-![task3.3]()
+Setup wordpress is done.
+
+![task3.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b4f6d70a21e64679ca22352e875bd948847932f5/2026/day-33/images/task%203.3.jpg)
 
 ## Stop the Application
 ```bash
@@ -128,8 +130,9 @@ data still remaining.
 ```bash
 docker compose up -d
 ```
-![task3.4]()
+![task3.4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b4f6d70a21e64679ca22352e875bd948847932f5/2026/day-33/images/task%203.4.jpg)
 
+![task3.5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c89c13fe8a0336dc303cde40e47511dbbfdb42e8/2026/day-33/images/task%203.5.jpg)
 ---
 
 # 📘 Task 4 – Compose Commands
