@@ -9,8 +9,8 @@ COPY . .
 FROM node:18-alpine
 WORKDIR /app
 COPY --from=builder /app /app
+# Create a non-root user to run the application
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-USER appuser
 
 EXPOSE 3000
 

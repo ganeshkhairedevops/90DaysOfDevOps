@@ -26,7 +26,7 @@ Final image size: ~127MB
 
 Reduced size significantly.
 
-![Mltistage]()
+![Multistage]()
 
 ## Why is the multi-stage image so much smaller?
 - The production stage only copies the necessary files (built app) from the builder stage.
