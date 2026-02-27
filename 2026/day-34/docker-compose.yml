@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: appdb
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:alpine
+    container_name: redis-cache
+    networks:
+      - app-network
+    restart: always
+
+  web:
+    build: ./app
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - app-network
+    restart: on-failure
+    labels:
+      project: flask-app
+      
+      
+
+volumes:
+  db_data:
+
+networks:
+  app-network:
+    driver: bridge
