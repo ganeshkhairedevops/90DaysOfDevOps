@@ -1,6 +1,6 @@
 # Day 34 – Docker Compose: Real-World Multi-Container Apps
 
-Today I built a production-style 3-service stack using Docker Compose:
+Today I built a production-style 3- service stack using Docker Compose:
 
 - Flask Web App (Python)
 - MySQL Database
@@ -17,7 +17,7 @@ All services connected through a custom bridge network.
 
 ---
 
-# Task 1 – 3-Service App Stack
+# Task 1 – 3 - Service App Stack
 
 Services:
 - web (Flask-app)
@@ -105,6 +105,7 @@ docker compose up --build -d
 Rebuild after changes
 
 ![rebuild1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c549228dab341baccbf4ebebfb7397102d2f1ae8/2026/day-34/images/task%204.1.JPG)
+
 
 ---
 
