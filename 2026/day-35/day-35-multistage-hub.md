@@ -9,7 +9,7 @@ Today I optimized Docker images using multi-stage builds and pushed them to Dock
 Built a single-stage Node image.
 Image size: ~1.9 GB
 
-![docker image]()
+![docker image](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/53d92ebbfdb0055b6a6f8e314b905bad8e0f9321/2026/day-35/images/task%201.JPG)
 
 Reason:
 - Includes build tools
@@ -26,7 +26,7 @@ Final image size: ~127MB
 
 Reduced size significantly.
 
-![Multistage]()
+![Multistage](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/53d92ebbfdb0055b6a6f8e314b905bad8e0f9321/2026/day-35/images/task%202.JPG)
 
 ## Why is the multi-stage image so much smaller?
 - The production stage only copies the necessary files (built app) from the builder stage.
@@ -50,20 +50,19 @@ and pest access token.
 
 Login Succeeded
 
-
 2. Tagged the image with my Docker Hub username.
 
 ```bash
 docker tag node_multistage:v1 ganeshkhaire14/node-multistage:v1
 ```
-![docker tag]()
+![docker tag](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/53d92ebbfdb0055b6a6f8e314b905bad8e0f9321/2026/day-35/images/task%203.JPG)
 
 3. Pushed the image to Docker Hub.
 
 ```bash
 docker push ganeshkhaire14/node-multistage:v1
 ```
-![docker hub]()
+![docker hub](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/53d92ebbfdb0055b6a6f8e314b905bad8e0f9321/2026/day-35/images/task%203.1.jpg)
 
 Now anyone can pull my optimized image using:
 
@@ -75,7 +74,7 @@ docker rmi ganeshkhaire14/node-multistage:v1
 ```bash
 docker pull ganeshkhaire14/node-multistage:v1
 ```
-![docker pull]()
+![docker pull](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/53d92ebbfdb0055b6a6f8e314b905bad8e0f9321/2026/day-35/images/task%203.2.JPG)
 
 ---
 
@@ -85,7 +84,7 @@ Add a description to the repository
 - Go to Docker Hub → Repositories → Your Repository → Edit.
 - Add a description, click Save.
 
-![task 4]()
+![task 4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/53d92ebbfdb0055b6a6f8e314b905bad8e0f9321/2026/day-35/images/task%204.jpg)
 
 ---
 
