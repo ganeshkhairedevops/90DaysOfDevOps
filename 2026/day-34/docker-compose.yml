@@ -39,6 +39,9 @@ services:
     networks:
       - app-network
     restart: on-failure
+    labels:
+      project: flask-app
+      
       
 
 volumes:
