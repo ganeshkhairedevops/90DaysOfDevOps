@@ -28,6 +28,16 @@ The web app connects to:
 - MySQL via service name `db`
 - Redis via service name `redis`
 
+![image](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c549228dab341baccbf4ebebfb7397102d2f1ae8/2026/day-34/images/task%201.jpg)
+
+logs
+
+![logs](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c549228dab341baccbf4ebebfb7397102d2f1ae8/2026/day-34/images/task%202.jpg)
+
+application
+
+![application](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c549228dab341baccbf4ebebfb7397102d2f1ae8/2026/day-34/images/final.jpg)
+
 ---
 
 # Task 2 – depends_on & Healthchecks
@@ -72,6 +82,9 @@ restart: on-failure
 - Does NOT restart if container is manually stopped
 - Good for batch jobs or workers
 
+![task](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c549228dab341baccbf4ebebfb7397102d2f1ae8/2026/day-34/images/task%203.jpg)
+
+
 ---
 
 # Task 4 – Custom Dockerfile
@@ -86,6 +99,13 @@ Rebuild and restarted in one command.
 ```
 docker compose up --build -d
 ```
+
+![rebuild](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c549228dab341baccbf4ebebfb7397102d2f1ae8/2026/day-34/images/task%204.JPG)
+
+Rebuild after changes
+
+![rebuild1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c549228dab341baccbf4ebebfb7397102d2f1ae8/2026/day-34/images/task%204.1.JPG)
+
 ---
 
 # Task 5 – Named Networks & Volumes
