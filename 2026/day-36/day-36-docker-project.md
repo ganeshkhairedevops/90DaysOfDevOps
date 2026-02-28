@@ -43,13 +43,8 @@ Located in: `app/Dockerfile`
 FROM python:3.10-slim AS builder
 
 WORKDIR /app
-
-# Copy dependency file
 COPY requirements.txt .
-
-# Install dependencies
 RUN pip install --user --no-cache-dir -r requirements.txt
-
 
 # Stage 2 - Runtime
 FROM python:3.10-slim
@@ -59,16 +54,14 @@ WORKDIR /app
 # Create non-root user
 RUN useradd -m appuser
 
-# Copy installed packages from builder stage
+# Copy installed packages from builder
 COPY --from=builder /root/.local /root/.local
 
-# Copy application code
+# Copy app source
 COPY . .
 
-# Ensure installed binaries are in PATH
 ENV PATH=/root/.local/bin:$PATH
 
-# Switch to non-root user
 USER appuser
 
 EXPOSE 5000
