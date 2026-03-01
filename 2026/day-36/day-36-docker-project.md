@@ -69,7 +69,9 @@ EXPOSE 5000
 CMD ["python", "app.py"]
 ```
 
-![application deploy]()
+![application deploy](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/3fdf0c7141d0a02f5c92bbdbd7d7569700445e70/2026/day-36/images/task%201.jpg)
+
+![deploy](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/3fdf0c7141d0a02f5c92bbdbd7d7569700445e70/2026/day-36/images/task%201.1.jpg)
 
 
 
