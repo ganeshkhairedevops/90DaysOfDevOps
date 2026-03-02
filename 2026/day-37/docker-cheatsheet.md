@@ -7,16 +7,20 @@ A quick reference for daily DevOps work.
 ## 🐳 Container Commands
 
 ```bash
-docker run image                 # Run container
-docker run -it image             # Interactive mode
-docker run -d image              # Detached mode
-docker ps                        # List running containers
-docker ps -a                     # List all containers
-docker stop container            # Stop container
-docker rm container              # Remove container
-docker exec -it container sh     # Enter running container
-docker logs container            # View container logs
-docker logs -f container         # Follow logs live
+docker run image                  # Run container
+docker run -it image              # Interactive mode
+docker run -d image               # Detached mode
+docker ps                         # List running containers
+docker ps -a                      # List all containers
+docker stop container             # Stop container
+docker rm container               # Remove container
+docker exec -it <container id> sh # Enter running container
+docker logs container             # View container logs
+docker restart <container>        # Restart a container
+docker logs -f container          # Follow logs live
+docker rm -f $(docker ps -aq)     #delete all Docker containers (both running and stopped)
+docker stop <container id> && docker rm <container id> # stop and remove docker container
+
 ```
 
 ---
@@ -37,8 +41,8 @@ docker tag src dest              # Tag image
 ## 💾 Volume Commands
 
 ```bash
-docker volume create name        # Create volume
 docker volume ls                 # List volumes
+docker volume create name        # Create volume
 docker volume inspect name       # Inspect volume
 docker volume rm name            # Remove volume
 ```
@@ -48,8 +52,8 @@ docker volume rm name            # Remove volume
 ## 🌐 Network Commands
 
 ```bash
-docker network create name       # Create network
 docker network ls                # List networks
+docker network create name       # Create network
 docker network inspect name      # Inspect network
 docker network connect net c     # Connect container to network
 ```
