@@ -1,4 +1,13 @@
+---
 name: Ganesh Khaire
 role: Devops Engineer
 experience_years: 2
 learning: true
+tools:
+  - Linux
+  - Git
+  - Docker
+  - Docker Compose
+  - Terraform
+
+hobbies: [Tech Blogging, Problem Solving]
