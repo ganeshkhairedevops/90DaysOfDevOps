@@ -1,0 +1,23 @@
+---
+server:
+  name: app-server-01
+  ip: 192.168.1.10
+  prot: 8080
+
+database:
+  host: db.internal.local
+  name: appdb
+  credentials:
+    user: appuser
+    password: password@123
+
+startup_script_pipe: |
+  #!/bin/bash
+  echo "starting application"
+  systemctl start docker
+  docker compose up -d
+
+startup_script_fold: >
+  this startup script initializes docker,
+  starts required services,
+  and ensures the application stack is running.
