@@ -13,6 +13,8 @@ Key points:
 - No tabs allowed
 - Spaces only (2-space indentation standard)
 
+![task 1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/71dd58fba89563b126dba81d4af181ecec90a489/2026/day-38/images/task%201.JPG)
+
 ---
 
 # Task 2 – Lists
@@ -28,6 +30,8 @@ Two ways to write lists:
    hobbies: [Problem Solving, Coding]
 
 Block style is preferred for readability.
+
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/71dd58fba89563b126dba81d4af181ecec90a489/2026/day-38/images/task%202.JPG)
 
 ---
 
@@ -75,7 +79,7 @@ our YAML file is valid, but it’s missing the document start marker ---
 
 update yaml files
 
-![person]()
+![person](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/71dd58fba89563b126dba81d4af181ecec90a489/2026/day-38/images/task%205.JPG)
 
 ---
 
