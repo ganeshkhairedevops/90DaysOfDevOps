@@ -9,8 +9,15 @@ Today I created my first CI pipeline using GitHub Actions.
 2. Clone it locally
 3. Create the folder structure: `.github/workflows/`
 
-## Workflow File
 
+![hello.yml](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/f7b921b04012a7cbb832b44ec11ad4770d0e5fd3/2026/day-40/images/task%201.jpg)
+
+---
+## Task 2: Hello Workflow
+Create .github/workflows/hello.yml with a workflow and Push it. Go to the Actions tab on GitHub and watch it run.
+
+## Workflow File
+hello.yml
 ```yaml
 # This is a basic GitHub Actions workflow that runs on every push to the repository.
 # # Name of the worflow
@@ -53,12 +60,6 @@ jobs:
       #- name: Break the pipeline on purpose
        #  run: exit 1
 ```
-
-![hello.yml](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/f7b921b04012a7cbb832b44ec11ad4770d0e5fd3/2026/day-40/images/task%201.jpg)
-
----
-## Task 2: Hello Workflow
-Create .github/workflows/hello.yml with a workflow and Push it. Go to the Actions tab on GitHub and watch it run.
 
 ![action](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/f7b921b04012a7cbb832b44ec11ad4770d0e5fd3/2026/day-40/images/task%202.jpg)
 
