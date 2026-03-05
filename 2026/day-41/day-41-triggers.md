@@ -33,7 +33,7 @@ ${{ github.head_ref }}
 ```
 This helps validate code before merging.
 
-![task1]()
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/17906ff70e625f31d6ad910c68d93eee019b9131/2026/day-41/images/task%201.jpg)
 
 ---
 
@@ -80,9 +80,9 @@ GitHub → Actions → Manual Workflow → Run Workflow
 
 It asks for an environment input and prints it when run.
 
-![task3]()
-![task3.1]()
-![task3.2]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/17906ff70e625f31d6ad910c68d93eee019b9131/2026/day-41/images/task%203.jpg)
+![task3.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/17906ff70e625f31d6ad910c68d93eee019b9131/2026/day-41/images/task3.1.jpg)
+![task3.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/17906ff70e625f31d6ad910c68d93eee019b9131/2026/day-41/images/task3.2.jpg)
 
 ---
 # Task 4: Matrix Builds
@@ -118,7 +118,7 @@ jobs:
 - Windows 3.12
 The excluded combination is Windows 3.10.
 
-![task4]()
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/17906ff70e625f31d6ad910c68d93eee019b9131/2026/day-41/images/task%204.jpg)
 
 ---
 # Task 5: Exclude & Fail-Fast
@@ -167,7 +167,7 @@ With `fail-fast: false`, if one job fails, the others will continue running. If 
 
 In the job that runs Python 3.11 on Ubuntu. The `if` condition checks if the current matrix combination is Python 3.11 and Ubuntu, and if so, it executes `exit 1`, which causes that specific job to fail.
 
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/17906ff70e625f31d6ad910c68d93eee019b9131/2026/day-41/images/task%205.jpg)
 
 ---
 
