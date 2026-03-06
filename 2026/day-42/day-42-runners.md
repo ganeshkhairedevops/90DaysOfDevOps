@@ -58,10 +58,10 @@ These runners are created for each workflow run and destroyed afterward.
 **Who manages it?**
 GitHub manages the infrastructure, maintenance, and updates of these runners.
 
-![task1](
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6afb4a1836bd9db8c9e0fb38051f7dce4fc9ffab/2026/day-42/images/task%201.jpg
 )
 
-![task1.1]()
+![task1.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6afb4a1836bd9db8c9e0fb38051f7dce4fc9ffab/2026/day-42/images/task%201.1.jpg)
 
 ---
 
@@ -125,7 +125,7 @@ Python
 Node
 Git
 
-![task2]()
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6afb4a1836bd9db8c9e0fb38051f7dce4fc9ffab/2026/day-42/images/task2.jpg)
 
 **Why does it matter that runners come with tools pre-installed?**
 
@@ -146,7 +146,7 @@ $ curl -o actions-runner-linux-x64-2.332.0.tar.gz -L https://github.com/actions/
 $ echo "f2094522a6b9afeab07ffb586d1eb3f190b6457074282796c497ce7dce9e0f2a  actions-runner-linux-x64-2.332.0.tar.gz" | shasum -a 256 -c# Extract the installer
 $ tar xzf ./actions-runner-linux-x64-2.332.0.tar.gz
 ```
-![task3]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6afb4a1836bd9db8c9e0fb38051f7dce4fc9ffab/2026/day-42/images/task3.JPG)
 
 **Configure**
 ```bash
@@ -154,7 +154,7 @@ $ tar xzf ./actions-runner-linux-x64-2.332.0.tar.gz
 $ ./config.sh --url https://github.com/ganeshkhairedevops/github-actions-practice --token ******************# Last step, run it!
 $ ./run.sh
 ```
-![task3.1]()
+![task3.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6afb4a1836bd9db8c9e0fb38051f7dce4fc9ffab/2026/day-42/images/task%203.1.JPG)
 
 **Using your self-hosted runner**
 ```yaml
@@ -167,7 +167,7 @@ After starting the runner using:
 
 It appeared in the repository runner list with a green "Idle" status.
 
-![task3.2]()
+![task3.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6afb4a1836bd9db8c9e0fb38051f7dce4fc9ffab/2026/day-42/images/task%203.2.jpg)
 
 ---
 
@@ -197,11 +197,11 @@ jobs:
 ```
 
 The workflow printed the hostname of my machine and created a file during execution.
-![task4]()
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6afb4a1836bd9db8c9e0fb38051f7dce4fc9ffab/2026/day-42/images/task%204.jpg)
 
 The file confirmed that the job was executed on my own server.
 
-![task4.1]()
+![task4.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6afb4a1836bd9db8c9e0fb38051f7dce4fc9ffab/2026/day-42/images/task%204.1.JPG)
 
 ---
 
@@ -217,7 +217,7 @@ runs-on: [self-hosted, my-linux-runner]
 
 Labels are useful when managing multiple runners.
 
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6afb4a1836bd9db8c9e0fb38051f7dce4fc9ffab/2026/day-42/images/task5.jpg)
 
 ---
 
