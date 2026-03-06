@@ -43,6 +43,7 @@ jobs:
 ```
 
 **What is a GitHub-hosted runner?**
+
 GitHub-hosted runners are virtual machines provided and managed by GitHub.
 
 They run workflows automatically and come pre-installed with many development tools.
@@ -56,6 +57,7 @@ macos-latest
 These runners are created for each workflow run and destroyed afterward.
 
 **Who manages it?**
+
 GitHub manages the infrastructure, maintenance, and updates of these runners.
 
 ![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6afb4a1836bd9db8c9e0fb38051f7dce4fc9ffab/2026/day-42/images/task%201.jpg
@@ -121,8 +123,11 @@ jobs:
 On the ubuntu-latest runner I checked:
 
 Docker
+
 Python
+
 Node
+
 Git
 
 ![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6afb4a1836bd9db8c9e0fb38051f7dce4fc9ffab/2026/day-42/images/task2.jpg)
@@ -162,9 +167,9 @@ $ ./run.sh
 runs-on: self-hosted
 ```
 After starting the runner using:
-
+```bash
 ./run.sh
-
+```
 It appeared in the repository runner list with a green "Idle" status.
 
 ![task3.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6afb4a1836bd9db8c9e0fb38051f7dce4fc9ffab/2026/day-42/images/task%203.2.jpg)
