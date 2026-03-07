@@ -40,7 +40,7 @@ jobs:
 ```
 This ensures the test job runs only after build succeeds.
 
-![task1]()
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/4300a7890842547621e808dd385bca24b732c8d1/2026/day-43/images/task%201.jpg)
 
 **Does it show the dependency chain?**
 
@@ -93,7 +93,7 @@ Also printed GitHub context variables:
 github.sha
 github.actor
 
-![task2]()
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/4300a7890842547621e808dd385bca24b732c8d1/2026/day-43/images/task%202.jpg)
 
 ---
 
@@ -136,7 +136,7 @@ Example uses:
 - artifact paths
 - Docker image tags
 
-![task3]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/4300a7890842547621e808dd385bca24b732c8d1/2026/day-43/images/task%203.jpg)
 
 Why would you pass outputs between jobs?
 Passing outputs between jobs allows you to share data generated in one job with subsequent jobs in the workflow. This is useful for scenarios where you need to:
@@ -187,7 +187,7 @@ continue-on-error: true
 
 This allows the pipeline to continue even if a step fails.
 
-![task4]()
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/4300a7890842547621e808dd385bca24b732c8d1/2026/day-43/images/task%204.jpg)
 **A step with continue-on-error: true — what does this do?**
 
 The `continue-on-error: true` setting allows a step to fail without causing the entire job or workflow to fail. When this option is set, if the step encounters an error, it will be marked as failed, but the workflow will continue executing the subsequent steps or jobs. This can be useful in scenarios where you want to allow certain non-critical steps to fail without impacting the overall success of the workflow, such as running optional tests or performing cleanup tasks that may not be essential for the main functionality of the pipeline.
@@ -233,7 +233,9 @@ jobs:
 ```
 This workflow runs lint and test jobs in parallel, then a summary job that uses conditionals to print different messages based on the branch type.
 
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/4300a7890842547621e808dd385bca24b732c8d1/2026/day-43/images/task%205.jpg)
+
+![task5.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/4300a7890842547621e808dd385bca24b732c8d1/2026/day-43/images/task%205.1.jpg)
 
 # Key Learning
 
