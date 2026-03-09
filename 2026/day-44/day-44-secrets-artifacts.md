@@ -54,7 +54,7 @@ GitHub shows *** in place of the actual secret value in logs.
 
 Printing secrets in CI logs can expose sensitive information to anyone with access to the logs, leading to security breaches.
 
-![task1]()
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/92be56e1634ae207d3d526ccfe9874adf6678afb/2026/day-44/images/task%201.jpg)
 
 ---
 
@@ -111,7 +111,7 @@ ${{ secrets.MY_SECRET_MESSAGE }}
 ```
 This allows pipelines to use credentials without hardcoding them.
 
-![task2]()
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/92be56e1634ae207d3d526ccfe9874adf6678afb/2026/day-44/images/task%202.jpg)
 
 ---
 
@@ -149,7 +149,7 @@ Logs
 
 Then downloaded it from the Actions tab.
 
-![task3]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/92be56e1634ae207d3d526ccfe9874adf6678afb/2026/day-44/images/task%203.jpg)
 
 ---
 
@@ -192,11 +192,11 @@ Artifacts can be passed between jobs.
 
 Job 1 creates a file.  
 
-![task4]()
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/1f7a0b82477121996e7a052d56f0998cf72ed1c1/2026/day-44/images/task%204.1.jpg)
 
 Job 2 downloads and uses it.
 
-![task4.1]()
+![task4.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/1f7a0b82477121996e7a052d56f0998cf72ed1c1/2026/day-44/images/task%204.2.jpg)
 
 This is useful for multi-stage pipelines.
 
@@ -239,10 +239,10 @@ jobs:
 I added a Python test script to the repository and executed it in GitHub Actions.
 
 If the script fails, the pipeline fails automatically.
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/1f7a0b82477121996e7a052d56f0998cf72ed1c1/2026/day-44/images/task%205.1.jpg)
 
 Fixing the script restores the pipeline to a successful state.
-![task5.1]()
+![task5.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/1f7a0b82477121996e7a052d56f0998cf72ed1c1/2026/day-44/images/task%205.jpg)
 
 ---
 
@@ -288,7 +288,7 @@ jobs:
 ```
 Cache not found
 ```
-![task6]()
+![task6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/1f7a0b82477121996e7a052d56f0998cf72ed1c1/2026/day-44/images/task%206.jpg)
 
 **Second Run**
 
@@ -298,9 +298,13 @@ Cache not found
 ```
 Cache restored successfully
 ```
-![task6.1]()
+![task6.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/1f7a0b82477121996e7a052d56f0998cf72ed1c1/2026/day-44/images/task%206.1.jpg)
 
 Caching stores dependencies between workflow runs.
+
+**First Run Second Run**
+
+![task6.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6c049a7265b2ad380aef1bf9e3911cd64c3fb9fb/2026/day-44/images/task%206.2.jpg)
 
 Example:
 
