@@ -110,7 +110,7 @@ jobs:
           VERSION="v1.0-${GITHUB_SHA::7}"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 ```
-![task]()
+![task](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/9663cbacb557276f4ba666b2ab565bcfcaac213e/2026/day-46/images/task%202.jpg)
 
 This workflow defines a reusable build process that accepts inputs for the application name and environment, requires a Docker token secret, and outputs a generated build version.
 
@@ -146,7 +146,7 @@ jobs:
         run: |
           echo "Build version is: ${{ needs.build.outputs.build_version }}"
 ```
-![task3]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/9663cbacb557276f4ba666b2ab565bcfcaac213e/2026/day-46/images/task%203.jpg)
 
 This workflow triggers on pushes to the main branch, calls the reusable build workflow, and then prints the generated build version.
 
@@ -158,7 +158,7 @@ outputs:
     description: "Generated build version"
     value: ${{ jobs.build.outputs.build_version }}
 ```
-![task4]()
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/9663cbacb557276f4ba666b2ab565bcfcaac213e/2026/day-46/images/task%204.jpg)
 
 This allows the calling workflow to access the generated build version after the reusable workflow completes.
 In the calling workflow (`call-build.yml`), we can access this output using:
@@ -174,7 +174,7 @@ A Composite Action allows you to combine multiple steps into a single reusable a
  
 Yes,custom action run and print the greeting
 
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/9663cbacb557276f4ba666b2ab565bcfcaac213e/2026/day-46/images/task%205.jpg)
 
 ---
 
