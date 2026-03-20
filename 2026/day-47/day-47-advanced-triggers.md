@@ -295,3 +295,19 @@ An external system might trigger a pipeline in scenarios such as:
 - `workflow_run` is used to trigger a workflow based on the completion of another workflow. It allows you to chain workflows together, where one workflow runs after another finishes, and you can conditionally check the outcome of the previous workflow.
 - `workflow_call` is used to create reusable workflows that can be called from other workflows. It allows you to define a workflow that can be invoked with specific inputs and secrets, and it can return outputs to the calling workflow. This promotes modularity and reuse of common workflow logic across different workflows.
 
+## Tips
+When required actions/checkout@v4
+- Always specify the version of actions you use (e.g., `actions/checkout@v4`) to ensure stability and avoid unexpected changes from updates.
+
+When not required actions/checkout@v4
+- If your workflow doesn't interact with the repository's code, you can skip the checkout step to save time and resources. For example, if you're only sending notifications or performing API calls, you may not need to check out the code.
+
+You can skip it if your workflow only:
+
+Prints variables
+
+Uses GitHub context (github.*)
+
+Calls APIs
+
+Runs simple shell commands
