@@ -33,9 +33,9 @@ jobs:
 ```
 I tested it by creating a PR, pushing updates, and merging it. The workflow fired correctly for each event type.
 
-![task1]()
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7e4218b10ca2894403275c1ef4459b4005a5ae44/2026/day-47/images/task%201.jpg)
 
-![taks1.1]()
+![taks1.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7e4218b10ca2894403275c1ef4459b4005a5ae44/2026/day-47/images/task%201.1.jpg)
 
 ### Task 2: PR Validation Workflow
 I created `.github/workflows/pr-checks.yml` to validate PRs against specific criteria. It has three jobs: `file-size-check`, `branch-name-check`, and `pr-body-check`. The first two jobs fail if the PR doesn't meet the requirements, while the last one warns if the PR description is empty.
@@ -85,7 +85,7 @@ jobs:
 ```
 I tested it by creating a PR with a badly named branch. The checks behaved as expected.
 
-![task2]()
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7e4218b10ca2894403275c1ef4459b4005a5ae44/2026/day-47/images/task%202.jpg)
 
 ### Task 3: Scheduled Workflows (Cron Deep Dive)
 I created `.github/workflows/scheduled-tasks.yml` with two cron schedules: every Monday at 2:30 AM UTC and every 6 hours. The workflow prints which schedule triggered it and performs a health check by curling a URL.
@@ -114,7 +114,7 @@ jobs:
 ```
 I also noted the cron expressions for specific schedules and why GitHub may delay or skip scheduled workflows on inactive repos.
 
-![task3]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7e4218b10ca2894403275c1ef4459b4005a5ae44/2026/day-47/images/task%203.jpg)
 
 **Notes:**
 
@@ -155,7 +155,7 @@ jobs:
             echo "Code files changed"
 
 ```
-![task4]()
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7e4218b10ca2894403275c1ef4459b4005a5ae44/2026/day-47/images/task%204.jpg)
 
 I tested it by pushing changes to a `.md` file and confirming that the workflow skipped, while changes to code files triggered it.
 ```yml
@@ -229,7 +229,7 @@ jobs:
 
 I tested it by pushing a commit. The test workflow ran first, and upon completion, the deploy workflow triggered. If the tests succeeded, it proceeded with deployment; if they failed, it printed a warning and skipped deployment.
 
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7e4218b10ca2894403275c1ef4459b4005a5ae44/2026/day-47/images/task%205.jpg)
 
 ### Task 6: `repository_dispatch` — External Event Triggers
 
@@ -267,7 +267,7 @@ gh api repos/ganeshkhairedevops/github-actions-practice/dispatches \
   -f event_type=deploy-request \
   -f client_payload[environment]=production
 ```
-![task6]()
+![task6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7e4218b10ca2894403275c1ef4459b4005a5ae44/2026/day-47/images/task%206.jpg)
 
 I verified that the workflow ran and printed the environment variable correctly.
 
@@ -284,7 +284,7 @@ gh api repos/ganeshkhairedevops/github-actions-practice/dispatches \
 }
 EOF
 ```
-![task6.1]()
+![task6.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7e4218b10ca2894403275c1ef4459b4005a5ae44/2026/day-47/images/task%206.1.jpg)
 
 **Write in your notes: When would an external system (like a Slack bot or monitoring tool) trigger a pipeline?**
 An external system might trigger a pipeline in scenarios such as:
