@@ -86,6 +86,9 @@ jobs:
         if: failure()
         run: echo "result=failed" >> $GITHUB_OUTPUT
 ```
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/832e492dd110ecb7a5b8bc7f319d36130fbe02c0/2026/day-48/images/task%201.jpg)
+
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/832e492dd110ecb7a5b8bc7f319d36130fbe02c0/2026/day-48/images/task%202.jpg)
 
 ## Task 3: Reusable Workflow — Docker Build & Push
 - Build and push Docker image to Docker Hub
@@ -180,7 +183,9 @@ jobs:
           echo "Author: ${{ github.event.pull_request.user.login }}"
           echo " Commit: ${{ github.sha }}"
 ```
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/832e492dd110ecb7a5b8bc7f319d36130fbe02c0/2026/day-48/images/task%204.jpg)
 
+![task4.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/832e492dd110ecb7a5b8bc7f319d36130fbe02c0/2026/day-48/images/task%204.1.jpg)
 ## Task 5: Main Pipeline
 Create `.github/workflows/main-pipeline.yml:`
 ```yml
@@ -220,6 +225,11 @@ jobs:
         run: |
           echo "Deploying image: ${{ needs.docker.outputs.image_url }} to production"
 ```
+
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/832e492dd110ecb7a5b8bc7f319d36130fbe02c0/2026/day-48/images/task%205.jpg)
+
+![task5.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/832e492dd110ecb7a5b8bc7f319d36130fbe02c0/2026/day-48/images/task%205.1.jpg)
+
 
 ## Task 6: Scheduled Health Check
 Create `.github/workflows/health-check.yml:`
@@ -270,17 +280,19 @@ jobs:
           echo "- Status: ${{ steps.health.outputs.status }}" >> $GITHUB_STEP_SUMMARY
           echo "- Time: $(date)" >> $GITHUB_STEP_SUMMARY
 ```
+![task6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/832e492dd110ecb7a5b8bc7f319d36130fbe02c0/2026/day-48/images/task%206.jpg)
 
 ### Task 7: Add Badges & Documentation
 - Add workflow badges to README
 
-Add Trivy Scan
+**Add Trivy Scan**
 
+found vulnerability
 
+![task7](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/832e492dd110ecb7a5b8bc7f319d36130fbe02c0/2026/day-48/images/task%207.jpg)
 
-## Improvements
-- Add Slack notifications
-- Add multi-environment deployments
-- Add rollback strategy
+solve issue
+
+![task7.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/832e492dd110ecb7a5b8bc7f319d36130fbe02c0/2026/day-48/images/task%207.1.jpg)
 
 
