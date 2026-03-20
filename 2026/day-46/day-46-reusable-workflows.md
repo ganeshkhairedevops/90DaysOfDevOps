@@ -1,5 +1,4 @@
-Day 46 – Reusable Workflows & Composite Actions
-Overview
+# Day 46 – Reusable Workflows & Composite Actions
 
 In real DevOps environments, workflows are not written repeatedly for every repository. Instead, reusable workflows and composite actions allow teams to standardize CI/CD processes and reuse automation across multiple repositories.
 
