@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: labelpod
+  labels:
+    app: myapp
+    environment: dev
+    team: devops
+spec:
+  containers:
+    - name: myapp-label
+      image: nginx:latest
+      ports:
+        - containerPort: 80
