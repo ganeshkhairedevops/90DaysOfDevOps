@@ -56,7 +56,7 @@ Verify:
 kubectl get pods
 kubectl get pods -o wide
 ```
-![task1]()
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0ed6825cc5b05df50ea584e5703e3cc59582d8f8/2026/day-51/images/task%201.jpg)
 
 Wait until the STATUS shows Running. Then explore:
 
@@ -74,7 +74,7 @@ kubectl exec -it nginx-pod -- /bin/bash
 curl localhost:80
 exit
 ```
-![task1.1]()
+![task1.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0ed6825cc5b05df50ea584e5703e3cc59582d8f8/2026/day-51/images/task%201.1.jpg)
 
 ---
 
@@ -113,7 +113,7 @@ Notice the command field — BusyBox does not run a long-lived server like Nginx
 
 - YES
 
-![task2]()
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0ed6825cc5b05df50ea584e5703e3cc59582d8f8/2026/day-51/images/task%202.jpg)
 
 ---
 
@@ -125,7 +125,19 @@ kubectl run redis-pod --image=redis:latest
 # Check the pod
 kubectl get pods
 ```
-![task3]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0ed6825cc5b05df50ea584e5703e3cc59582d8f8/2026/day-51/images/task%203.jpg)
+
+Now extract the YAML that Kubernetes generated:
+```bash
+kubectl get pod redis-pod -o yaml
+```
+This is what Kubernetes created behind the scenes. You can save this YAML to a file and modify it if you want. This is the declarative way.
+
+You can also use dry-run to generate YAML without creating anything:
+```bash
+kubectl run test-pod --image=nginx --dry-run=client -o yaml
+```
+![task3.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0ed6825cc5b05df50ea584e5703e3cc59582d8f8/2026/day-51/images/task%203.1.jpg)
 
 ---
 ### Task 4: Validate Before Applying
@@ -143,7 +155,7 @@ Now intentionally break your YAML (remove the image field or add an invalid fiel
 
 - Showing this error `The Pod "nginx-pod" is invalid: spec.containers[0].image: Required value`
 
-![task4]()
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0ed6825cc5b05df50ea584e5703e3cc59582d8f8/2026/day-51/images/task%204.1.jpg)
 
 ---
 
@@ -166,7 +178,7 @@ kubectl get pods --show-labels
 # Remove a label
 kubectl label pod nginx-pod environment-
 ```
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0ed6825cc5b05df50ea584e5703e3cc59582d8f8/2026/day-51/images/task%205.jpg)
 
 Write a manifest for a third pod with at least 3 labels (app, environment, team). Apply it and practice filtering.
 ```yaml
@@ -185,7 +197,7 @@ spec:
       ports:
         - containerPort: 80
 ```
-![task5.1]()
+![task5.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0ed6825cc5b05df50ea584e5703e3cc59582d8f8/2026/day-51/images/task%205.1.png)
 
 ---
 
@@ -204,7 +216,7 @@ kubectl delete -f nginx-pod.yaml
 # Verify everything is gone
 kubectl get pods
 ```
-![task6]()
+![task6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/0ed6825cc5b05df50ea584e5703e3cc59582d8f8/2026/day-51/images/task%206.jpg)
 
 Notice that when you delete a standalone Pod, it is gone forever. There is no controller to recreate it. This is why in production you use Deployments instead of bare Pods.
 
