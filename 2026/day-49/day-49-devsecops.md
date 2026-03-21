@@ -52,7 +52,7 @@ Instead of fixing vulnerabilities after deployment, security checks are automate
 
 Yes
 
-![task3]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/181087a3ccee10cc003faaefbfcf8aca03eb038a/2026/day-49/images/task%203.jpg)
 
 ### Task 4: Add Permissions to Your Workflows
 - Use least privilege principle
