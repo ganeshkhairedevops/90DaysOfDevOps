@@ -35,7 +35,7 @@ These are the control plane components keeping your cluster alive. Do not touch 
 
 `8 pods are running`
 
-![images](images/task1.jpg)
+![images](2026/day-52/images/task 1.jpg)
 
 ---
 ### Task 2: Create and Use Custom Namespaces
