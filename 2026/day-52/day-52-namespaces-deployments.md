@@ -51,7 +51,7 @@ kubectl get namespaces
 ```
 You should see `dev` and `staging` in the list.
 
-![task2]()
+![task2](images/task 2.png)
 
 You can also create a namespace from a manifest:
 ```yaml
