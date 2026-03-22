@@ -35,7 +35,7 @@ These are the control plane components keeping your cluster alive. Do not touch 
 
 `8 pods are running`
 
-![images](2026/day-52/images/task 1.jpg)
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%201.jpg)
 
 ---
 ### Task 2: Create and Use Custom Namespaces
@@ -51,7 +51,7 @@ kubectl get namespaces
 ```
 You should see `dev` and `staging` in the list.
 
-![task2](images/task 2.png)
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%202.png)
 
 You can also create a namespace from a manifest:
 ```yaml
@@ -64,20 +64,20 @@ metadata:
 ```bash
 kubectl apply -f namespace.yaml
 ```
-![task2.1]()
+![task2.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%202.1.jpg)
 
 Now run a pod in a specific namespace:
 ```bash
 kubectl run nginx-dev --image=nginx:latest -n dev
 kubectl run nginx-staging --image=nginx:latest -n staging
 ```
-![task2.2]()
+![task2.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%202.2.jpg)
 
 List pods across all namespaces:
 ```bash
 kubectl get pods -A
 ```
-![task2.3]()
+![task2.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%202.3.jpg)
 
 You should see the nginx pods running in their respective namespaces.
 
@@ -131,7 +131,7 @@ kubectl get pods -n dev
 ```
 You should see 3 pods running, managed by the Deployment.
 
-![task3]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%203.jpg)
 
 **Verify:** What do the READY, UP-TO-DATE, and AVAILABLE columns mean in the deployment output?
 - READY: Number of pods that are ready vs desired (e.g., 3/3 means all pods are ready)
@@ -158,7 +158,7 @@ The Deployment controller detects that only 2 of 3 desired replicas exist and im
 
 - Yes,different name but same prefix
 
-![task4]()
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%204.jpg)
 
 ---
 ### Task 5: Scale the Deployment
@@ -175,14 +175,14 @@ kubectl get pods -n dev
 ```
 You should see the number of pods increase to 5 and then decrease to 2 as you scale up and down.
 
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%205.jpg)
 
-![task5.1]()
+![task5.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%205.1.jpg)
 
 Watch how Kubernetes creates or terminates pods to match the desired count.
 You can also scale by editing the manifest — change `replicas: 4` in your YAML file and run `kubectl apply -f nginx-deployment.yaml` again.
 
-![task5.2]()
+![task5.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%205.2.jpg)
 
 **Verify:** When you scaled down from 5 to 2, what happened to the extra pods?
 
@@ -208,7 +208,7 @@ Check the rollout history:
 kubectl rollout history deployment/nginx-deployment -n dev
 ```
 
-![task6]()
+![task6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%206.jpg)
 
 Now roll back to the previous version:
 ```bash
@@ -221,7 +221,7 @@ Verify the image is back to the previous version:
 kubectl describe deployment nginx-deployment -n dev | grep Image
 ```
 
-![task6.1]()
+![task6.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%206.1.jpg)
 
 **Verify:** What image version is running after the rollback?
 - After rollback Image Version is `nginx:1.24`
@@ -242,6 +242,8 @@ Deleting a namespace removes everything inside it. Be very careful with this in 
 kubectl get namespaces
 kubectl get pods -A
 ```
+![task7](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/c2ba2f09756fe550fb6d72557a954d8826015dd4/2026/day-52/images/task%207.jpg)
+
 **Verify:** Are all your resources gone?
 - Yes, all namespaces and pods created during the challenge are deleted.
 ---
