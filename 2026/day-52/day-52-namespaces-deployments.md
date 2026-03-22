@@ -276,3 +276,6 @@ kubectl get pods -A
 **How rolling updates and rollbacks work**
 - Rolling updates allow you to update the application version without downtime. When you change the image version in the Deployment, Kubernetes will create new Pods with the updated image and only terminate old Pods once the new ones are healthy and ready to serve traffic.
 - Rollbacks allow you to revert to a previous version if something goes wrong. Kubernetes keeps a history of revisions for each Deployment. If you need to roll back, you can use `kubectl rollout undo` to revert to the last known good state. The new Pods will be replaced with the previous version, again without downtime.
+---
+
+You have successfully created namespaces, deployed applications using Deployments, and experienced Kubernetes' self-healing and scaling capabilities.
