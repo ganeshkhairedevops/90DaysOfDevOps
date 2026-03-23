@@ -297,6 +297,7 @@ Only the built-in `kubernetes` service in the default namespace should remain.
 - Services decouple the client from the Pods, allowing Pods to be replaced or scaled without affecting clients
 
 **Your three Service manifests with an explanation of each type**
+
 `ClusterIP Service`
 
 ```bash
