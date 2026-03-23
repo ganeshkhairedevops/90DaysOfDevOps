@@ -296,7 +296,68 @@ Only the built-in `kubernetes` service in the default namespace should remain.
 - Services load balance traffic across all Pods that match their selector
 - Services decouple the client from the Pods, allowing Pods to be replaced or scaled without affecting clients
 
-Your three Service manifests with an explanation of each type
+**Your three Service manifests with an explanation of each type**
+`ClusterIP Service`
+
+```bash
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-app-clusterip
+spec:
+  type: ClusterIP
+  selector:
+    app: web-app
+  ports:
+  - port: 80
+    targetPort: 80
+```
+- Default Service type
+- Exposes Pods inside the cluster only
+- Provides a stable internal IP + DNS name
+- Used for internal communication between services
+
+
+`NodePort Service`
+
+```bash
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-app-nodeport
+spec:
+  type: NodePort
+  selector:
+    app: web-app
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30080
+```
+- Exposes Service on each node’s IP at a fixed port (30000–32767)
+- Access using: `<NodeIP>:NodePort`
+- Used for external access in development/testing
+
+
+`LoadBalancer Service`
+
+```bash
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-app-loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: web-app
+  ports:
+    - port: 80
+      targetPort: 80
+```
+- Creates an external load balancer (in cloud environments)
+- Provides a public IP to access the app
+- Used for production external traffic
+- Internally also includes ClusterIP + NodePort
 
 **The difference between ClusterIP, NodePort, and LoadBalancer**
 - ClusterIP: Internal access only, stable IP within the cluster
