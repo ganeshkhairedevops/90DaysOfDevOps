@@ -276,7 +276,7 @@ kubectl get pvc
 kubectl exec dynamic-pod -- cat /data/message.txt
 ```
 
-![task6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fe2d779647322882d6023ec044bfbf67f5649b93/2026/day-55/images/task%206.1.JPG)
+![task6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/fe2d779647322882d6023ec044bfbf67f5649b93/2026/day-55/images/task%206.JPG)
 
 Verify: How many PVs exist now? Which was manual, which was dynamic?
 - There should be 2 PVs: `my-pv` (manual) and a new one created for `dynamic-pvc` (dynamic).
