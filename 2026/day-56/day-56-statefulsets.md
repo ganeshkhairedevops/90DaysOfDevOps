@@ -42,11 +42,9 @@ This is fine for web servers but not for databases where you need stable identit
 | Storage | Shared PVC | Each pod gets its own PVC |
 | Network identity | No stable hostname | Stable DNS per pod |
 
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/5c7aa92597e93f4f504eebca8249155d16e806b9/2026/day-56/images/task%201.JPG)
 
-
-![task1]()
-
-![task1.1]()
+![task1.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/5c7aa92597e93f4f504eebca8249155d16e806b9/2026/day-56/images/task%201.1.JPG)
 
 **Verify:** Why would random pod names be a problem for a database cluster?
 - Databases rely on stable identity
@@ -58,7 +56,9 @@ This is fine for web servers but not for databases where you need stable identit
 2. Set the selector to match the labels you will use on your StatefulSet pods
 3. Apply it and confirm CLUSTER-IP shows `None`
 A Headless Service creates individual DNS entries for each pod instead of load-balancing to one IP. StatefulSets require this.
-![task2]()
+
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/5c7aa92597e93f4f504eebca8249155d16e806b9/2026/day-56/images/task%202.JPG)
+
 **Verify:** What does the CLUSTER-IP column show?
 - It should show `None` for the Headless Service
 ---
@@ -69,20 +69,24 @@ A Headless Service creates individual DNS entries for each pod instead of load-b
 4. Apply and watch: `kubectl get pods -l <your-label> -w`
 Observe ordered creation — `web-0` first, then `web-1` after `web-0` is Ready, then `web-2`.
 Check the PVCs: `kubectl get pvc` — you should see `web-data-web-0`, `web-data-web-1`, `web-data-web-2` (names follow the pattern `<template-name>-<pod-name>`).
-![task3]()
+
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/5c7aa92597e93f4f504eebca8249155d16e806b9/2026/day-56/images/task%203.JPG)
 
 
 **Verify:** What are the exact pod names and PVC names?
 - Pod names: `web-0`, `web-1`, `web-2`
 - PVC names: `web-data-web-0`, `web-data-web-1`, `web-data-web-2`
-![task3.1]()
+
+![task3.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/5c7aa92597e93f4f504eebca8249155d16e806b9/2026/day-56/images/task%203.1.JPG)
 
 ---
 ### Task 4: Stable Network Identity
 Each StatefulSet pod gets a DNS name: `<pod-name>.<service-name>.<namespace>.svc.cluster.local`
 1. Use `nslookup` or `dig` inside a pod to resolve the DNS name of each StatefulSet pod
 2. Confirm the IPs match `kubectl get pods -o wide`
-![task4]()
+
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/5c7aa92597e93f4f504eebca8249155d16e806b9/2026/day-56/images/task%204.JPG)
+
 **Verify:** Does the nslookup IP match the pod IP?
 - Yes, the IP returned by nslookup should match the pod IP shown in `kubectl get pods -o wide`
 ---
@@ -95,34 +99,41 @@ The new pod reconnected to the same PVC.
 
 **Verify:** Is the data identical after pod recreation?
 - Yes, the data should be the same, confirming that the PVC is persistent and attached to the new pod instance.
-![task5]()
+
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/5c7aa92597e93f4f504eebca8249155d16e806b9/2026/day-56/images/task%205.JPG)
 
 ---
 ### Task 6: Ordered Scaling
 1. Scale up to 5: `kubectl scale statefulset web --replicas=5` — pods create in order (web-3, then web-4)
 
 After Scaling 5 
-![task6]()
+
+![task6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/5c7aa92597e93f4f504eebca8249155d16e806b9/2026/day-56/images/taks%206.JPG)
+
+
 2. Scale down to 3 — pods terminate in reverse order (web-4, then web-3)
 3. Check `kubectl get pvc` — all five PVCs still exist. Kubernetes keeps them on scale-down so data is preserved if you scale back up.
 
 **Verify:** After scaling down, how many PVCs exist?
 - All 5 PVCs still exist, confirming that Kubernetes retains them for potential future use.
 
-![task6.1]
+![task6.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/5c7aa92597e93f4f504eebca8249155d16e806b9/2026/day-56/images/task%206.1.JPG)
 
 ---
 
 ### Task 7: Clean Up
 1. Delete the StatefulSet and the Headless Service
 
-![task7]()
+![task7](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/5c7aa92597e93f4f504eebca8249155d16e806b9/2026/day-56/images/task%207.JPG)
 
 2. Check `kubectl get pvc` — PVCs are still there (safety feature)
 3. Delete PVCs manually
 
-![task7.1]()
+![task7.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/5c7aa92597e93f4f504eebca8249155d16e806b9/2026/day-56/images/task%207.1.JPG)
 
 **Verify:** Were PVCs auto-deleted with the StatefulSet?
 - No, PVCs are not auto-deleted to prevent data loss. You must delete them manually if you want to remove them.
 ---
+## 🎉 Conclusion
+StatefulSets are essential for managing stateful applications in Kubernetes. They provide stable network identities, ordered deployment, and persistent storage, making them ideal for databases and other stateful workloads. Understanding how to use StatefulSets effectively is crucial for running reliable stateful applications on Kubernetes.
+
