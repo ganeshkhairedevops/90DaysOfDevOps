@@ -102,6 +102,10 @@ resource "aws_instance" "ec2" {
   tags = {
     "Name" = "TerraWeek-Server"
   }
+  lifecycle {
+  create_before_destroy = true
+}
+
 }
 
 # S3 Bucket
