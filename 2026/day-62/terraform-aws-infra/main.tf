@@ -103,3 +103,13 @@ resource "aws_instance" "ec2" {
     "Name" = "TerraWeek-Server"
   }
 }
+
+# S3 Bucket
+# Stores app logs, depends on EC2
+resource "aws_s3_bucket" "app_logs" {
+  bucket     = "ganesh-terraform-appl-log26"
+  depends_on = [aws_instance.ec2]
+  tags = {
+    "Name" = "TerraWeek-app-logs"
+  }
+}
