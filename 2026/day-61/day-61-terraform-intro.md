@@ -213,3 +213,29 @@ terraform destroy
 
 ![task6.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/960c33012bc8f51e97664aeca7640d780542ad4c/2026/day-61/images/task%206.3.JPG)
 
+---
+## Documentation
+### What is IaC (Infrastructure as Code)?
+Infrastructure as Code (IaC) is the practice of managing and provisioning computing infrastructure through machine-readable configuration files rather than manual processes. It allows developers and operations teams to define, deploy, and manage infrastructure in a consistent and repeatable way using code.
+### Terraform Commands
+- `terraform init`: Initializes a Terraform working directory by downloading necessary provider plugins and setting up the environment.
+- `terraform plan`: Creates an execution plan, showing what actions Terraform will take to achieve the desired state defined in the configuration files.
+- `terraform apply`: Applies the changes required to reach the desired state of the configuration. It creates, updates, or destroys resources as needed.
+- `terraform destroy`: Destroys all resources managed by the current configuration, effectively tearing down the infrastructure.
+- `terraform show`: Displays the current state in a readable format
+- `terraform state list`: Lists all resources currently managed in the state file.
+- `terraform state show <resource>`: Shows detailed information about a specific resource in the state file.
+
+### What the state file contains and why it matters
+The Terraform state file (`terraform.tfstate`) contains a JSON representation of all the resources that Terraform manages, including their current attributes, IDs, and metadata. It is crucial for Terraform to track the state of resources to determine what changes need to be made when you run `terraform plan` or `terraform apply`. The state file allows Terraform to know what resources exist, their current configuration, and how they relate to each other. It should be kept secure and not manually edited or committed to version control due to sensitive information and potential for corruption.
+
+**What it contains:**
+- Resource types and names
+- Resource attributes (IDs, ARNs, configuration values)
+- Metadata about when resources were created or modified
+
+**Why it matters:**
+- It allows Terraform to track and manage resources effectively
+- It ensures consistency and prevents configuration drift
+- It enables collaboration when stored in remote backends (like S3)
+
