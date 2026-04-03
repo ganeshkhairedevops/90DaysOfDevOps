@@ -89,6 +89,12 @@ resource "aws_security_group" "ec2-sg" {
   }
 }
 
+resource "aws_key_pair" "deployer" {
+  key_name   = "terraserver"
+  public_key = file("~/.ssh/id_rsa.pub")
+}
+
+
 data "aws_ami" "amazon_linux" {
   most_recent = true
   owners      = ["amazon"]
@@ -106,7 +112,7 @@ resource "aws_instance" "ec2" {
   ami                         = data.aws_ami.amazon_linux.id
   instance_type               = var.instance_type
   #instance_type               = var.instance_type
-  key_name                    = var.key_name
+  key_name                    = aws_key_pair.deployer.key_name
   subnet_id                   = aws_subnet.public_subnet.id
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
