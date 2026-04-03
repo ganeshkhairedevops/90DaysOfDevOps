@@ -1,3 +1,37 @@
+# Data source to get the latest Amazon Linux 2 AMI
+data "aws_ami" "amazon_linux_2_gp3" {
+  most_recent = true
+
+  owners = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+}
+
+# Data source to get available AZs
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
+
+
 # VPC
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
@@ -14,6 +48,7 @@ resource "aws_vpc" "vpc" {
 resource "aws_subnet" "public_subnet" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = var.subnet_cidr
+  availability_zone = data.aws_availability_zones.available.names[0] # Use the first available AZ
   #map_public_ip_on_launch = true
 
   tags = {
@@ -99,7 +134,7 @@ resource "aws_security_group" "ec2-sg" {
 # EC2 Instance
 # Launch a server in public subnet
 resource "aws_instance" "ec2" {
-  ami                         = "ami-0ec10929233384c7f"
+  ami                         = data.aws_ami.amazon_linux_2_gp3.id
   instance_type               = var.instance_type
   #instance_type               = var.instance_type
   key_name                    = var.key_name
