@@ -11,7 +11,7 @@ resource "aws_vpc" "vpc" {
 # Pub Subnet inside vpc
 resource "aws_subnet" "public_subnet" {
   vpc_id = aws_vpc.vpc.id
-  cidr_block = "var.subnet_cidr"
+  cidr_block = var.subnet_cidr
   map_public_ip_on_launch = true
 
   tags = {
@@ -93,14 +93,14 @@ resource "aws_security_group" "ec2-sg" {
 # Launch a server in public subnet
 resource "aws_instance" "ec2" {
   ami                         = "ami-01b14b7ad41e17ba4"
-  instance_type               = "var.instance_type"
-  key_name                    = "var.key_name"
+  instance_type               = var.instance_type
+  key_name                    = var.key_name
   subnet_id                   = aws_subnet.public_subnet.id
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
 
   tags = {
-    "Name" = "var.project_name-${var.environment}-EC2"
+    "Name" = "TerraWeek-Server"
   }
   lifecycle {
   create_before_destroy = true
