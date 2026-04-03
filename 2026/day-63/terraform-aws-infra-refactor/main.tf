@@ -92,7 +92,7 @@ resource "aws_security_group" "ec2-sg" {
 # EC2 Instance
 # Launch a server in public subnet
 resource "aws_instance" "ec2" {
-  ami                         = "ami-01b14b7ad41e17ba4"
+  ami                         = "ami-0ec10929233384c7f"
   instance_type               = var.instance_type
   key_name                    = var.key_name
   subnet_id                   = aws_subnet.public_subnet.id
