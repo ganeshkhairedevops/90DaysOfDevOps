@@ -100,7 +100,7 @@ resource "aws_instance" "ec2" {
   vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
 
   tags = {
-    "Name" = var.project_name.var.environment
+    "Name" = "${var.project_name}-${var.environment}"
   }
   lifecycle {
   create_before_destroy = true
