@@ -89,6 +89,17 @@ resource "aws_security_group" "ec2-sg" {
   }
 }
 
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-*-x86_64"]
+  }
+}
+
+
 # EC2 Instance
 # Launch a server in public subnet
 resource "aws_instance" "ec2" {
