@@ -89,30 +89,18 @@ resource "aws_security_group" "ec2-sg" {
   }
 }
 
-resource "aws_key_pair" "deployer" {
-  key_name   = "terraserver"
-  public_key = file("~/.ssh/id_rsa.pub")
-}
 
 
-data "aws_ami" "amazon_linux" {
-  most_recent = true
-  owners      = ["amazon"]
 
-  filter {
-    name   = "name"
-    values = ["al2023-ami-*-x86_64"]
-  }
-}
 
 
 # EC2 Instance
 # Launch a server in public subnet
 resource "aws_instance" "ec2" {
-  ami                         = data.aws_ami.amazon_linux.id
+  ami                         = "ami-0ec10929233384c7f"
   instance_type               = var.instance_type
   #instance_type               = var.instance_type
-  key_name                    = aws_key_pair.deployer.key_name
+  key_name                    = var.key_name
   subnet_id                   = aws_subnet.public_subnet.id
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
