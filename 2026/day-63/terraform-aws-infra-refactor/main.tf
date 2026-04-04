@@ -143,6 +143,7 @@ resource "aws_instance" "ec2" {
   #ami                        = data.aws_ami.amazon_linux.id
   instance_type               = var.instance_type
   #instance_type               = var.instance_type
+  instance_type = var.environment == "prod" ? "t3.small" : "t2.micro"
   key_name                    = var.key_name
   subnet_id                   = aws_subnet.public_subnet.id
   associate_public_ip_address = true
