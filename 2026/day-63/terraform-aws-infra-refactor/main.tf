@@ -30,6 +30,15 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
+# Locals for common values and tags
+locals {
+  name_prefix = "${var.project_name}-${var.environment}"
+  common_tags = {
+    Project     = var.project_name
+    Environment = var.environment
+    ManagedBy   = "Terraform"
+  }
+} # Define local values for name prefix and common tags to avoid repetition
 
 
 # VPC
@@ -38,22 +47,22 @@ resource "aws_vpc" "vpc" {
   enable_dns_support   = true
   enable_dns_hostnames = true
 
-  tags = {
-    Name = "TerraWeek-VPC"
-  }
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-VPC"
+  }) # Merge common tags with resource-specific Name tag
 }
 
 # Public Subnet
-# Pub Subnet inside vpc
+# Public Subnet inside vpc
 resource "aws_subnet" "public_subnet" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = var.subnet_cidr
   availability_zone = data.aws_availability_zones.available.names[0] # Use the first available AZ
   #map_public_ip_on_launch = true
 
-  tags = {
-    Name = "TerraWeek-Public-Subnet"
-  }
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-Public-Subnet"
+  }) # Merge common tags with resource-specific Name tag
 }
 
 # Internet Gateway
@@ -61,9 +70,9 @@ resource "aws_subnet" "public_subnet" {
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
 
-  tags = {
-    Name = "TerraWeek-IGW"
-  }
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-IGW"
+  }) # Merge common tags with resource-specific Name tag
 }
 
 
@@ -77,9 +86,9 @@ resource "aws_route_table" "public_rt" {
     gateway_id = aws_internet_gateway.igw.id
   }
 
-  tags = {
-    Name = "TerraWeek-Public-RT"
-  }
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-rt"
+  }) # Merge common tags with resource-specific Name tag
 
 }
 
@@ -93,24 +102,19 @@ resource "aws_route_table_association" "public_rt_assoc" {
 # Security Group
 # Firewall: allow SSH & HTTP, all outbound
 resource "aws_security_group" "ec2-sg" {
-  name        = "TerraWeek-SG"
-  description = "Allow SSH and HTTP"
+  name        = "${var.project_name}-${var.environment}-SG" # Use project and environment for unique SG name
+  description = "Security group with dynamic allowed ports"
   vpc_id      = aws_vpc.vpc.id
 
-  ingress {
-    description = "Allow SSH"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+  dynamic "ingress" {
+    for_each = var.allowed_ports
+    content {
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
 
-  ingress {
-    description = "Allow HTTP"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -121,9 +125,10 @@ resource "aws_security_group" "ec2-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    "Name" = "TerraWeek-SG"
-  }
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-Sg"
+  }) # Merge common tags with resource-specific Name tag
+
 }
 
 
@@ -135,6 +140,7 @@ resource "aws_security_group" "ec2-sg" {
 # Launch a server in public subnet
 resource "aws_instance" "ec2" {
   ami                         = data.aws_ami.amazon_linux_2_gp3.id
+  #ami                        = data.aws_ami.amazon_linux.id
   instance_type               = var.instance_type
   #instance_type               = var.instance_type
   key_name                    = var.key_name
@@ -142,9 +148,9 @@ resource "aws_instance" "ec2" {
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
 
-  tags = {
-    "Name" = "${var.project_name}-${var.environment}"
-  }
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-Server"
+  }) # Merge common tags with resource-specific Name tag
   lifecycle {
   create_before_destroy = true
 }
