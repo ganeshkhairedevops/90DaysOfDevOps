@@ -113,7 +113,7 @@ instance_type = "t3.small"
 vpc_cidr     = "10.1.0.0/16"
 subnet_cidr  = "10.1.1.0/24"
 ```
-3. 3. Apply with the default file:
+3. Apply with the default file:
 ```bash
 terraform plan                              # Uses terraform.tfvars automatically
 ```
