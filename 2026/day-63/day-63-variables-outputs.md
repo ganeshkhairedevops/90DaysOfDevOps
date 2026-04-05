@@ -27,7 +27,7 @@ Take your Day 62 infrastructure config and refactor it:
 2. Replace every hardcoded value in `main.tf` with `var.<name>` references
 3. Run `terraform plan` -- it should prompt you for `project_name` since it has no default
 
-![task1]()
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%201.jpg)
 
 **Document:** What are the five variable types in Terraform? (`string`, `number`, `bool`, `list`, `map`)
 - `string` names or any text
@@ -117,26 +117,26 @@ subnet_cidr  = "10.1.1.0/24"
 ```bash
 terraform plan                              # Uses terraform.tfvars automatically
 ```
-![task2]()
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%202.jpg)
 
 4. Apply with the prod file:
 ```bash
 terraform plan -var-file="prod.tfvars"      # Uses prod.tfvars
 ```
-![task2.1]()
+![task2.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%202.1.jpg)
 
 5. Override with CLI:
 ```bash
 terraform plan -var="instance_type=t2.nano"  # CLI overrides everything
 ```
-![task2.3]()
+![task2.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%202.2.jpg)
 
 6. Set an environment variable:
 ```bash
 export TF_VAR_environment="staging"
 terraform plan                              # env var overrides default but not tfvars
 ```
-![task2.4]()
+![task2.4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%202.3.jpg)
 
 - export TF_VAR_environment="staging" overrides only the default in variables.tf, but does not override terraform.tfvars.
 - terraform.tfvars have environment = dev, Terraform uses "dev"
@@ -170,12 +170,15 @@ terraform output instance_public_ip       # Show a specific output
 terraform output -json                    # JSON format for scripting
 ```
 
-![task3]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%203.jpg)
+
+
+![task.3.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%203.1.jpg)
 
 **Verify:** Does `terraform output instance_public_ip` return the correct IP?
 - Yes, `terraform output instance_public_ip` returns the correct IP.
 
-![task3.1]()
+![task3.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%203.2.jpg)
 
 ---
 ### Task 4: Use Data Sources
@@ -195,7 +198,7 @@ Stop hardcoding the AMI ID. Use a data source to fetch it dynamically.
 
 Apply and verify -- your config now works in any region without changing the AMI.
 
-![task4]()
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%204.jpg)
 
 **Document:** What is the difference between a `resource` and a `data` source?
 - A `resource` creates infrastructure (like EC2 instances, VPCs, etc.), while a `data` source fetches existing information (like AMI IDs, availability zones, etc.) without creating anything.
@@ -239,7 +242,11 @@ tags = merge(local.common_tags, {
 
 Apply and check the tags in the AWS console -- every resource should have consistent tagging.
 
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%205.jpg)
+
+![task5.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%205.1.jpg)
+
+![task5.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%205.2.jpg)
 
 
 ---
@@ -274,7 +281,13 @@ instance_type = var.environment == "prod" ? "t3.small" : `"t3.micro"
 
 Apply with `environment = "prod"` and verify the instance type changes.
 
-![task6]()
+![task6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%206.jpg)
+
+![task6.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%206.1.jpg)
+
+![task6.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%206.2.jpg)
+
+![task6.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/7ff1c736dab7e5897942579e39dc750692c07423/2026/day-63/images/task%206.3.jpg)
 
 **Document:** Pick five functions you find most useful and explain what each does.
 1. `upper(string)` - Converts a string to uppercase.
