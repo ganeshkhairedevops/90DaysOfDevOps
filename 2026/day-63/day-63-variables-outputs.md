@@ -27,7 +27,7 @@ Take your Day 62 infrastructure config and refactor it:
 2. Replace every hardcoded value in `main.tf` with `var.<name>` references
 3. Run `terraform plan` -- it should prompt you for `project_name` since it has no default
 
-![task1]()
+![image](images/task 1.jpg)
 
 **Document:** What are the five variable types in Terraform? (`string`, `number`, `bool`, `list`, `map`)
 - `string` names or any text
