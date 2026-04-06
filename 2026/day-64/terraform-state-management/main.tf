@@ -156,3 +156,8 @@ resource "aws_instance" "ec2" {
   create_before_destroy = true
 }
 }
+
+# Importing an existing S3 bucket created manually in AWS Console
+resource "aws_s3_bucket" "imported" {
+  bucket = "terraweek-import-test-ganeshkhaire"
+}
