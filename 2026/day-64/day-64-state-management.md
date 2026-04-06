@@ -329,3 +329,39 @@ You should see a **diff** -- Terraform detects that reality no longer matches th
 - Versioning (recovery)
 - Safer and production-ready
 
+---
+## Steps for terraform import and Result
+1. **Created an S3 bucket manually** in AWS Console
+  - Bucket name: `terraweek-import-test-ganeshkhaire`
+2. **Added Terraform resource block** in my configuration:
+```hcl
+resource "aws_s3_bucket" "imported" {
+  bucket = "terraweek-import-test-ganeshkhaire"
+}
+```
+(just the bucket name, nothing else)
+
+3. **Imported the existing bucket** into Terraform state:
+```bash
+terraform import aws_s3_bucket.imported terraweek-import-test-ganeshkhaire
+```
+![task4.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a7193eac1d912138268382e772e66400e728433f/2026/day-64/images/task%204.1.JPG)
+
+4. **Run `terraform plan`** to check for changes:
+   - Result: "No changes" -- the import was perfect, and now Terraform is managing the existing bucket without trying to recreate it.
+
+5. Verified the state:
+
+```bash
+terraform state list
+```
+![task4.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a7193eac1d912138268382e772e66400e728433f/2026/day-64/images/task%204.2.JPG)
+
+The imported resource appeared in the state file
+
+- Result: The imported bucket `aws_s3_bucket.imported` now appears in the state alongside other resources, confirming that it is successfully tracked by Terraform. 
+
+6. Checked for drift:
+```bash
+terraform plan
+```
