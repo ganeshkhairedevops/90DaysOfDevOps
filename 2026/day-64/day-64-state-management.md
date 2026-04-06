@@ -365,3 +365,5 @@ The imported resource appeared in the state file
 ```bash
 terraform plan
 ```
+- Result: "No changes" -- the imported resource matches the actual state in AWS, so there is no drift detected.
+
