@@ -69,8 +69,8 @@ module "web_sg" {
 
 module "web_server" {
   source             = "./modules/ec2-instance"
-  ami_id             = data.aws_ami.amazon_linux.id
-  instance_type      = "t2.micro"
+  ami_id             = data.aws_ami.amazon_linux_2.id
+  instance_type      = "t3.micro"
   subnet_id          = aws_subnet.public.id
   security_group_ids = [module.web_sg.sg_id]
   instance_name      = "terraweek-web"
@@ -79,8 +79,8 @@ module "web_server" {
 
 module "api_server" {
   source             = "./modules/ec2-instance"
-  ami_id             = data.aws_ami.amazon_linux.id
-  instance_type      = "t2.micro"
+  ami_id             = data.aws_ami.amazon_linux2.id
+  instance_type      = "t3.micro"
   subnet_id          = aws_subnet.public.id
   security_group_ids = [module.web_sg.sg_id]
   instance_name      = "terraweek-api"
