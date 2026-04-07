@@ -14,7 +14,7 @@ resource "aws_security_group" "sg" {
       }
     }
 
-    egress = {
+    egress {
         description = "Allow all outbound traffic"
         from_port = 0
         to_port = 0

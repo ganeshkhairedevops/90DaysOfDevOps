@@ -1,5 +1,5 @@
 # Data source to get the latest Amazon Linux 2 AMI
-data "aws_ami" "amazon_linux_2_gp3" {
+data "aws_ami" "amazon_linux_2" {
   most_recent = true
 
   owners = ["amazon"]
@@ -79,7 +79,7 @@ module "web_server" {
 
 module "api_server" {
   source             = "./modules/ec2-instance"
-  ami_id             = data.aws_ami.amazon_linux2.id
+  ami_id             = data.aws_ami.amazon_linux_2.id
   instance_type      = "t3.micro"
   subnet_id          = aws_subnet.public.id
   security_group_ids = [module.web_sg.sg_id]
