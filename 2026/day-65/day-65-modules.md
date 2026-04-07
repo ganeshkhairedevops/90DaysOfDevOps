@@ -33,7 +33,7 @@ terraform-modules/
 
 Create all the directories and empty files. This is the standard layout every Terraform project follows.
 
-![task1]()
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%201.jpg)
 
 **Document:** What is the difference between a "root module" and a "child module"?
 - **Root module:** The configuration in the top-level directory that Terraform runs first (calls child modules, defines providers, variables, outputs).
@@ -142,20 +142,20 @@ terraform init    # Downloads/links the local modules
 terraform plan    # Should show all resources from both module calls
 terraform apply
 ```
-![task4.5]()
+![task4.5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%204.5.JPG)
 
-![task4]()
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%204.jpg)
 
 
 **Verify:** Two EC2 instances running, same security group, different names. Check the AWS console.
 
-![task4.1]()
+![task4.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%204.1.jpg)
 
-![task4.2]()
+![task4.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%204.2.jpg)
 
-![task4.3]()
+![task4.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%204.3.jpg)
 
-![task4.4]()
+![task4.4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%204.4.jpg)
 
 ---
 ### Task 5: Use a Public Registry Module
@@ -189,15 +189,15 @@ terraform init     # Downloads the registry module
 terraform plan
 terraform apply
 ```
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%205.jpg)
 
-![task5.2]()
+![task5.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%205.2.jpg)
 
 
 4. Compare: how many resources did the VPC module create vs your hand-written VPC from Day 62?
 - The VPC module created 10+ resources (VPC, subnets, route tables, IGW, etc.) while my hand-written VPC had only 3 resources. The module abstracts away all the underlying components needed for a functional VPC.
 
-![task5.1]()
+![task5.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%205.1.jpg)
 
 ---
 
@@ -209,7 +209,7 @@ terraform apply
 
 2. Run `terraform init -upgrade` to check for newer versions
 
-![task 6]
+![task 6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%206.jpg)
 
 3. Check the state to see how modules appear:
 ```bash
@@ -217,13 +217,13 @@ terraform state list
 ```
 Notice the `module.vpc.`, `module.web_server.`, `module.web_sg.` prefixes.
 
-![task6.1]()
+![task6.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%206.1.jpg)
 
 4. Destroy everything:
 ```bash
 terraform destroy
 ```
-![task6.2]()
+![task6.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/8608ec1a486e9e99199747cbabd4a9400d77934a/2026/day-65/images/task%206.2.jpg)
 
 ---
 
