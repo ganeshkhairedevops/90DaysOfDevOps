@@ -337,6 +337,8 @@ This will take 10-15 minutes.
 
 ![task6.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%206.3.jpg)
 
+---
+
 ### Switch back to kind cluster
 ```bash
 kubectl config get-contexts
