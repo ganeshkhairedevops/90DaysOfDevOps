@@ -83,9 +83,9 @@ private_subnet_tags = {
 
 Run `terraform init` and `terraform plan` to verify the VPC config before moving on.
 
-![task2]()
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%202.jpg)
 
-![task2.1]()
+![task2.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%202.1.jpg)
 
 **Document:** Why does EKS need both public and private subnets?
 EKS uses public subnets for load balancers and private subnets for worker nodes. The subnet tags help EKS identify which subnets to use for which purpose.
@@ -142,11 +142,11 @@ Run:
 terraform init      # Download EKS module and its dependencies
 terraform plan      # Review -- this will create 30+ resources
 ```
-![task3]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%203.jpg)
 
-![task3.1]()
+![task3.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%203.1.jpg)
 
-![task3.2]()
+![task3.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%203.2.jpg)
 
 Review the plan carefully before applying. You should see: EKS cluster, IAM roles, node group, security groups, and more.
 
@@ -157,11 +157,11 @@ Review the plan carefully before applying. You should see: EKS cluster, IAM role
 ```bash
 terraform apply
 ```
-![task4]()
+![task4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%204.jpg)
 
-![task4.1]()
+![task4.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%204.1.jpg)
 
-![task4.3]()
+![task4.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%204.3.jpg)
 
 
 This will take 10-15 minutes. EKS cluster creation is slow -- be patient.
@@ -193,25 +193,35 @@ kubectl get nodes
 kubectl get pods -A
 kubectl cluster-info
 ```
-![task4.5]()
+![task4.5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%204.5.jpg)
 
-![task4.6]()
+![task4.6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%204.6.jpg)
 
 **Verify:** Do you see 2 nodes in `Ready` state? Can you see the kube-system pods running?
 
 - Yes.
 
-![task4.9]()
+![task4.9](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%204.9.jpg)
 
-![task4.10]()
+**Cluster**
 
-![task4.11]()
+![task4.10](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%204.10.jpg)
 
-![task4.12]()
+**Security Group**
 
-![task4.13]()
+![task4.11](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%204.11.jpg)
 
-![task4.15]()
+**Elastic IP**
+
+![task4.12](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%204.12.jpg)
+
+**VPC**
+
+![task4.13](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%204.13.jpg)
+
+**Auto Scaling Groups**
+
+![task4.15](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%204.15.jpg)
 
 ---
 ### Task 5: Deploy a Workload on the Cluster
@@ -263,7 +273,7 @@ kubectl apply -f k8s/nginx-deployment.yaml
 ```bash
 kubectl get svc nginx-service -w
 ```
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%205.jpg)
 
 4. Access the Nginx page via the LoadBalancer URL
 
@@ -274,12 +284,12 @@ kubectl get deployments
 kubectl get pods
 kubectl get svc
 ```
-![task5.14]()
+![task4.14](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%204.14.jpg)
 
 **Verify:** Can you access the Nginx welcome page through the LoadBalancer URL?
 - Yes.
 
-![task5.1]
+![task5.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%205.1.jpg)
 
 ---
 
@@ -290,7 +300,7 @@ This is the most important step. EKS clusters cost money. Clean up completely.
 ```bash
 kubectl delete -f k8s/nginx-deployment.yaml
 ```
-![task6]()
+![task6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%206.jpg)
 
 2. Wait for the LoadBalancer to be fully removed (check EC2 > Load Balancers in AWS console)
 
@@ -298,7 +308,7 @@ kubectl delete -f k8s/nginx-deployment.yaml
 ```bash
 terraform destroy
 ```
-![task6.1]()
+![task6.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%206.1.jpg)
 
 This will take 10-15 minutes.
 
@@ -323,9 +333,9 @@ This will take 10-15 minutes.
 - The destroy process took around 15 minutes to complete. EKS cluster deletion is slow.
 - After destroy, I verified in the AWS console that there were no EKS clusters, no EC2 instances, no VPCs, no NAT Gateways, and no Elastic IPs left. My account is completely clean.
 
-![task6.2]()
+![task6.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%206.2.jpg)
 
-![task6.3]()
+![task6.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%206.3.jpg)
 
 ### Switch back to kind cluster
 ```bash
@@ -337,7 +347,7 @@ kubectl config use-context kind-devops
 ```bash
 kubectl get nodes
 ```
-![task7]
+![task7](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/93c8d6ed4bc5e4c052e163e00c1db81898c514a6/2026/day-66/images/task%207.jpg)
 
 ---
 
