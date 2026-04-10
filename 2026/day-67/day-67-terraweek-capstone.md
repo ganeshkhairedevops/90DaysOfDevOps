@@ -38,7 +38,7 @@ terraform workspace new prod
 # List all workspaces
 terraform workspace list
 ```
-![task1]()
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%201.jpg)
 
 ```bash
 # Switch between them
@@ -46,7 +46,7 @@ terraform workspace select dev
 terraform workspace select staging
 terraform workspace select prod
 ```
-![task1.1]()
+![task1.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%201.1.jpg)
 
 Answer:
 1. What does `terraform.workspace` return inside a config?
@@ -98,7 +98,7 @@ Create the `.gitignore`:
 *.tfvars
 .terraform.lock.hcl
 ```
-![task2]()
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%202.jpg)
 
 **Document:** Why is this file structure considered best practice?
 - **Modularity:** Reusable modules for VPC, security groups, EC2 instances
@@ -131,8 +131,9 @@ Write and validate each module:
 ```bash
 terraform validate
 ```
-![task3]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%203.jpg)
 
+![task3.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%203.1.jpg)
 
 ---
 
@@ -220,7 +221,7 @@ terraform workspace select dev
 terraform plan -var-file="dev.tfvars"
 terraform apply -var-file="dev.tfvars"
 ```
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%205.1dev.jpg)
 
 **Staging:**
 ```bash
@@ -228,7 +229,7 @@ terraform workspace select staging
 terraform plan -var-file="staging.tfvars"
 terraform apply -var-file="staging.tfvars"
 ```
-![task5-staging]()
+![task5-staging](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%205.1%20staging.jpg)
 
 **Prod:**
 ```bash
@@ -236,7 +237,7 @@ terraform workspace select prod
 terraform plan -var-file="prod.tfvars"
 terraform apply -var-file="prod.tfvars"
 ```
-![task5-prod]()
+![task5-prod](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%205.1%20prod.jpg)
 
 After all three are deployed, verify:
 ```bash
@@ -245,17 +246,19 @@ terraform workspace select dev && terraform output
 terraform workspace select staging && terraform output
 terraform workspace select prod && terraform output
 ```
-![task5.1]()
+![task5.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%205.2.jpg)
 
 Go to the AWS console and verify:
 - Three separate VPCs with different CIDR ranges
 
-    ![task5.2]()
+    ![task5.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%205.3.jpg)
 
 - Three EC2 instances with different instance types
-    ![task5.3]()
+    ![task5.4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%205.4.jpg)
 
 - Different Name tags per environment: `terraweek-dev-server`, `terraweek-staging-server`, `terraweek-prod-server`
+
+    ![task5.5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%205.5.jpg)
 
 **Verify:** Are all three environments completely isolated from each other?
 - Yes, each environment has its own VPC, subnet, security group, and EC2 instance. They do not share any resources or state files.
@@ -291,11 +294,11 @@ terraform destroy -var-file="staging.tfvars"
 terraform workspace select dev
 terraform destroy -var-file="dev.tfvars"
 ```
-![task7]()
+![task7.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%207.1%20prod.jpg)
 
-![task7.1]()
+![task7.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%207.1%20staging.jpg)
 
-![task7.2]
+![task7.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%207.1%20dev.jpg)
 
 Verify in the AWS console -- all VPCs, instances, security groups, and gateways should be gone.
 
@@ -306,14 +309,14 @@ terraform workspace delete dev
 terraform workspace delete staging
 terraform workspace delete prod
 ```
-![task7.3]()
+![task7.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%207.1.jpg)
 
 **Verify:** Is your AWS account completely clean?
 - Yes, all resources created by Terraform have been destroyed and the workspaces deleted. The AWS console should show no VPCs, EC2 instances, security groups, or internet gateways related to this project.
 
-![task7.2]()
+![task7.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%207.2.jpg)
 
-![task7.3]()
+![task7.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/a669cb9f1d88b48b356e5382228b544851562805/2026/day-67/images/task%207.3.jpg)
 
 ---
 
