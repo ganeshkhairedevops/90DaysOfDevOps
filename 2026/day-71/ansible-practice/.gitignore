@@ -1,0 +1,6 @@
+keys
+ansible
+ansible.pub
+*.pem
+*.key
+.vault_pass
