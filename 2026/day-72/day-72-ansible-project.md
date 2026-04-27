@@ -381,11 +381,11 @@ ansible-playbook site.yml --skip-tags common
 1. Curl the server on port 8080 -- does the Docker container respond directly?
 2. Curl the server on port 80 -- does Nginx reverse proxy the request to the container?
 
-![tast6.8]()
+![tast6.8](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6e6a4626cea260467d3ba739e05b39a76f894503/2026/day-72/images/task%206.8.JPG)
 
 3. Check `docker ps` on the server -- is the container running with the correct port mapping?
 
-![task6.9]()
+![task6.9](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6e6a4626cea260467d3ba739e05b39a76f894503/2026/day-72/images/task%206.9.JPG)
 
 ---
 
@@ -399,7 +399,7 @@ ansible-playbook site.yml --tags docker \
 
 The old container should be replaced with the new one. Nginx still proxies traffic -- no config change needed.
 
-![task6.10]()
+![task6.10](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6e6a4626cea260467d3ba739e05b39a76f894503/2026/day-72/images/task%206.10.JPG)
 
 Now run the full playbook one more time:
 ```bash
@@ -408,12 +408,12 @@ ansible-playbook site.yml
 
 The output should show mostly `ok` with zero or minimal `changed`. This proves your entire setup is **idempotent**.
 
-![task6.11]()
+![task6.11](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6e6a4626cea260467d3ba739e05b39a76f894503/2026/day-72/images/task%206.11.JPG)
 
 **Reflect and document:**
 1. How many total tasks ran?
 
-![task6.12]()
+![task6.12](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6e6a4626cea260467d3ba739e05b39a76f894503/2026/day-72/images/task%206.12.JPG)
 
 2. Map each Ansible concept to the day you learned it:
 
@@ -430,6 +430,8 @@ The output should show mostly `ok` with zero or minimal `changed`. This proves y
 
 4. Clean up your EC2 instances when done. If you used Terraform: `terraform destroy`. If manual: terminate from the console.
 
-![task6.13]()
+![task6.13](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6e6a4626cea260467d3ba739e05b39a76f894503/2026/day-72/images/task%206.13.JPG)
+
+![task6.14](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6e6a4626cea260467d3ba739e05b39a76f894503/2026/day-72/images/task%206.14.JPG)
 
 ---
