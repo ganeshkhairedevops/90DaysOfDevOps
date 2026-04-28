@@ -9,7 +9,11 @@ services:
       - prometheus_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.retention.time=30d'
+      - '--storage.tsdb.retention.size=1GB'
     restart: unless-stopped
+    networks:
+      - prometheus
 
   notes-app:
     build:
@@ -19,6 +23,12 @@ services:
     ports:
       - "8000:8000"
     restart: unless-stopped
+    networks:
+      - prometheus
 
 volumes:
   prometheus_data:
+
+networks:
+  prometheus:
+
