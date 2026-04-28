@@ -12,7 +12,9 @@ services:
     restart: unless-stopped
 
   notes-app:
-    image: trainwithshubham/notes-app:latest
+    build:
+      context: ./notes-app
+      dockerfile: Dockerfile
     container_name: notes-app
     ports:
       - "8000:8000"
