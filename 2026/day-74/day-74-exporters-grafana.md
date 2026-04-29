@@ -154,12 +154,12 @@ Run these queries in Prometheus:
 ![task2.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6e0193b2ef8e118eba39dc847867e7fed27d89d7/2026/day-74/images/task%202.2.JPG)
 
 ## Network received bytes per container
-**rate(container_network_receive_bytes_total{id=~".*docker.*scope"}[5m])**
+rate(container_network_receive_bytes_total{id=~".*docker.*scope"}[5m])
 
 ![task2.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6e0193b2ef8e118eba39dc847867e7fed27d89d7/2026/day-74/images/task%202.3.JPG)
 
 ## Which container is using the most memory?
-**topk(3, container_memory_usage_bytes{id=~".*docker.*scope"}) /1024 /1024**
+topk(3, container_memory_usage_bytes{id=~".*docker.*scope"}) /1024 /1024
 
 ![task2.4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/6e0193b2ef8e118eba39dc847867e7fed27d89d7/2026/day-74/images/task%202.4.JPG)
 
