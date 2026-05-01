@@ -87,6 +87,17 @@ services:
     networks:
       - monitoring
 
+  promtail:
+    image: grafana/promtail:latest
+    container_name: promtail
+    volumes:
+      - ./promtail/promtail-config.yml:/etc/promtail/promtail-config.yml
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: -config.file=/etc/promtail/promtail-config.yml
+    restart: unless-stopped
+    networks:
+      - monitoring
 
 volumes:
   prometheus_data:
