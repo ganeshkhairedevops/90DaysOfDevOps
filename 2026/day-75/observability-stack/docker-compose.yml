@@ -33,12 +33,10 @@ services:
       - monitoring
 
   notes-app:
-    build:
-      context: ./notes-app
-      dockerfile: Dockerfile
+    image: ganeshkhaire14/notes-app:latest
     container_name: notes-app
     ports:
-      - "8000:8000"
+      - 8000:8000
     restart: unless-stopped
     networks:
       - monitoring
