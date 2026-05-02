@@ -96,6 +96,18 @@ services:
     restart: unless-stopped
     networks:
       - monitoring
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    container_name: otel-collector
+    ports:
+      - "4317:4317"   # OTLP gRPC
+      - "4318:4318"   # OTLP HTTP
+      - "8889:8889"   # Prometheus exporter
+    volumes:
+      - ./otel-collector/otel-collector-config.yml:/etc/otelcol-contrib/config.yaml
+    restart: unless-stopped
+    networks:
+      - monitoring
 
 volumes:
   prometheus_data:
