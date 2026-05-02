@@ -1,5 +1,7 @@
 # Day 75 -- Log Management with Loki and Promtail
+
 Today, we explored log management using Loki and Promtail. Loki is a log aggregation system designed for storing and querying logs efficiently, while Promtail is an agent that collects logs and sends them to Loki.
+
 ---
 
 ## Challenge Tasks
@@ -327,6 +329,7 @@ The real power of observability is correlation -- seeing metrics and logs togeth
 **Document:** How does having metrics and logs in the same tool (Grafana) help during incident response compared to checking separate systems?
 
 Having metrics and logs in the same tool allows for seamless correlation. During an incident, you can quickly jump from a metric anomaly to the relevant logs without switching contexts or tools. This speeds up root cause analysis and reduces the time to resolution.
+
 ---
 
 ### Comparison: Loki vs ELK stack (when would you use each?)
@@ -335,8 +338,11 @@ Having metrics and logs in the same tool allows for seamless correlation. During
     
 
 ---
+
 ## Conclusion
+
 Today we set up a complete log management pipeline using Loki and Promtail, and integrated it with Grafana for powerful querying and visualization. We learned how to write LogQL queries to filter and analyze logs, and how to correlate metrics and logs together for effective troubleshooting. This is a critical skill for any DevOps engineer, as logs often hold the key to understanding what happened during an incident.
+
 ---
 
 
