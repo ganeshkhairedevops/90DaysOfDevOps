@@ -344,3 +344,119 @@ Wait 1-2 minutes, then check Alerts in the Prometheus UI. Start it back up when 
 docker compose start notes-app
 ```
 
+---
+
+### Task 5: Set Up Grafana Alerts
+Grafana can also evaluate alerts and send notifications to Slack, email, PagerDuty, and more.
+
+1. **Create a contact point:**
+   - Go to Alerting > Contact points > Add contact point
+   - Name: "DevOps Team"
+   - Integration: Choose email (or Slack webhook if you have one)
+   - For email: just enter your email address
+   - Save
+
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/3949547015778edf36fe34b0269114895f801a5d/2026/day-76/images/task%205.1.jpg)
+
+2. **Create an alert rule in Grafana:**
+   - Go to Alerting > Alert rules > New alert rule
+   - Name: "High Container Memory"
+   - Query: `container_memory_usage_bytes{name="notes-app"} / 1024 / 1024`
+   - Condition: IS ABOVE 100 (fire if container uses more than 100MB)
+   - Evaluation: every 1m, for 2m
+   - Add label: severity = warning
+   - Link to the "DevOps Team" contact point
+   - Save
+
+3. **Create a notification policy:**
+   - Go to Alerting > Notification policies
+   - Set the default contact point to "DevOps Team"
+   - Add a nested policy: match label `severity=critical` -> route to a different contact point (or the same one with different settings)
+
+
+4. **View alert state:**
+   - Go to Alerting > Alert rules
+   - You should see your rule in Normal, Pending, or Firing state
+
+![task5.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/3949547015778edf36fe34b0269114895f801a5d/2026/day-76/images/task%205.jpg)
+
+**Document:** What is the difference between Prometheus alerts and Grafana alerts?
+
+- Prometheus alerts are defined in PromQL and evaluated by the Prometheus server. They are great for monitoring infrastructure and services that expose metrics to Prometheus.
+- Grafana alerts are defined in the Grafana UI and can be based on any data source (Prometheus, Loki, Tempo, etc). They are more flexible and can be used for application-level monitoring or custom dashboards. You might use Prometheus alerts for low-level system metrics and Grafana alerts for higher-level application metrics or custom conditions that are easier to express in the UI.
+
+When would you use each?
+- Use Prometheus alerts for infrastructure monitoring (CPU, memory, disk, network) and service health (up/down).
+- Use Grafana alerts for application-level monitoring (response times, error rates) or when you want to create custom dashboards with alerting directly from the UI.
+
+---
+
+### Task 6: Review the Full Stack Architecture
+Your observability stack now covers all three pillars. Map out what you have built:
+
+```
+                    METRICS PIPELINE
+[Node Exporter] -----> [Prometheus] -----> [Grafana Dashboards]
+[cAdvisor] ----------> [Prometheus] -----> [Grafana Dashboards]
+[OTEL Collector:8889]> [Prometheus] -----> [Grafana Dashboards]
+                                    -----> [Alert Rules -> Notifications]
+
+                    LOGS PIPELINE
+[Docker Containers] -> [Promtail] -> [Loki] -> [Grafana Explore/Dashboards]
+
+                    TRACES PIPELINE
+[curl/App OTLP] -----> [OTEL Collector] -> [Debug Output / Future: Jaeger/Tempo]
+```
+
+**Services running:**
+
+| Service | Port | Purpose |
+|---------|------|---------|
+| Prometheus | 9090 | Metrics storage and querying |
+| Node Exporter | 9100 | Host system metrics |
+| cAdvisor | 8080 | Container metrics |
+| Grafana | 3000 | Visualization and alerting |
+| Loki | 3100 | Log storage |
+| Promtail | 9080 | Log collection agent |
+| OTEL Collector | 4317/4318/8889 | Telemetry collection |
+| Notes App | 8000 | Sample application |
+
+Verify all services are running:
+```bash
+docker compose ps
+```
+
+All 8 containers should be healthy and running.
+
+![task6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/3949547015778edf36fe34b0269114895f801a5d/2026/day-76/images/task%206.jpg)
+
+---
+
+## The full architecture diagram with all three pillars
+
+```
+                        ┌───────────────────────────┐
+                        │        Grafana            │
+                        │ Dashboards & Alerting     │
+                        └────────────┬──────────────┘
+                                     │
+           ┌─────────────────────────┼─────────────────────────┐
+           │                         │                         │
+
+      📊 METRICS                📜 LOGS                    🔍 TRACES
+           │                         │                         │
+
+ ┌─────────▼─────────┐     ┌────────▼────────┐     ┌──────────▼──────────┐
+ │    Prometheus     │     │      Loki       │     │  OTEL Collector     │
+ │ (Metrics Storage) │     │ (Log Storage)   │     │ (Telemetry Gateway) │
+ └─────────┬─────────┘     └────────┬────────┘     └──────────┬──────────┘
+           │                         │                         │
+   ┌───────┼────────┐         ┌──────┼───────┐          ┌──────┼────────┐
+   │       │        │         │              │          │               │
+
+┌──▼───┐ ┌─▼────┐ ┌─▼────┐  ┌─▼────────┐  ┌─▼───────┐  ┌─▼────────┐  ┌─▼────────┐
+│Node  │ │cAdvisor│ │App   │  │Promtail  │  │Containers│  │Application│  │Test/OTLP │
+│Exporter││       │ │Metrics│ │(Log Agent)│ │Logs       │ │Traces     │  │Requests   │
+└──────┘ └───────┘ └───────┘  └──────────┘  └──────────┘  └──────────┘  └──────────┘
+
+```
