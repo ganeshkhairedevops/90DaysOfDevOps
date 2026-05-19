@@ -334,6 +334,9 @@ Now compare what you built over days 73-76 with the reference repository.
 docker compose down -v
 ```
 
+![task6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/b48f8a292f11e987ff4750913418d7ac06889b5a/2026/day-77/images/task%206.JPG)
+
+
 The `-v` flag removes named volumes (Prometheus data, Grafana data, Loki data). Only use this if you are done exploring.
 
 
@@ -342,10 +345,12 @@ The `-v` flag removes named volumes (Prometheus data, Grafana data, Loki data). 
 
 **Key takeaways from the 5-day observability block**
 
-Observability is essential to understand what is happening in your system, where it is happening, and why.
+- Observability is critical for understanding and maintaining complex systems.
+- Prometheus is the de facto standard for metrics collection and querying.
+- Grafana provides powerful visualization and dashboarding capabilities.
+- Loki is a log aggregation system that integrates seamlessly with Grafana.
+- OpenTelemetry is an emerging standard for collecting traces and metrics in a vendor-neutral way.
+- Docker Compose allows you to easily orchestrate a full observability stack locally for testing and learning.
+- Building your own stack gives you deep insights into how observability tools work under the hood, which is invaluable for troubleshooting and optimizing in production environments.
 
-`Three pillars:`
 
-* **Metrics:** Tell you *what is happening*. They show system health like node and container performance (using tools like OTEL).
-* **Logs:** Help you understand *why something happened*. They record detailed events from Docker, collected via Promtail, stored in Loki, and viewed in Grafana.
-* **Traces:** Show *where a request goes*. Using OTEL Collector and OTLP spans, you can follow a request across different services.
