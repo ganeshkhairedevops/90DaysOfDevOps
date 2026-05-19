@@ -35,8 +35,8 @@ observability-for-devops/
   notes-app/                            # Sample Django + React application
 ```
 
-![task1]()
-![task1.1]()
+![task1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/cdd7032aee2a5b6ee77e524ee6919abb34121e7d/2026/day-77/images/task%201.JPG)
+![task1.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/cdd7032aee2a5b6ee77e524ee6919abb34121e7d/2026/day-77/images/task%201.1.JPG)
 
 Launch the entire stack:
 ```bash
@@ -48,7 +48,7 @@ Wait for all containers to start:
 docker compose ps
 ```
 
-![task1.2]()
+![task1.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/cdd7032aee2a5b6ee77e524ee6919abb34121e7d/2026/day-77/images/task%201.2.JPG)
 
 All 8 services should show as running:
 
@@ -76,7 +76,7 @@ Confirm Prometheus is scraping all targets:
    - `otel-collector` (OTLP metrics)
 
 
-![task2]()
+![task2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/cdd7032aee2a5b6ee77e524ee6919abb34121e7d/2026/day-77/images/task%202.JPG)
 
 
 Run these validation queries:
@@ -84,27 +84,25 @@ Run these validation queries:
 ### All targets are healthy
 up
 
-![task2.1]()
+![task2.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/cdd7032aee2a5b6ee77e524ee6919abb34121e7d/2026/day-77/images/task%202.1.JPG)
 
 ### Host CPU usage
 100 - (avg(rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
 
-![task2.2]()
+![task2.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/cdd7032aee2a5b6ee77e524ee6919abb34121e7d/2026/day-77/images/task%202.2.JPG)
 
 ### Memory usage
 (1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100
 
-![task2.3]()
+![task2.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/cdd7032aee2a5b6ee77e524ee6919abb34121e7d/2026/day-77/images/task%202.3.JPG)
 
 ### Container CPU per container
 rate(container_cpu_usage_seconds_total{name!=""}[5m]) * 100
 
-![task2.4]()
 
 ### Top 3 memory-hungry containers
 topk(3, container_memory_usage_bytes{name!=""})
 
-![task2.5]()
 ---
 
 Compare the `prometheus.yml` from the reference repo with the one you built over days 73-76. Note the scrape jobs and intervals.
@@ -134,34 +132,34 @@ Open Grafana (`http://localhost:3000`) and go to Explore:
 ### All container logs
 {job="docker"}
 
-![task3]()
 
 ### Only notes-app logs
 {container_name="notes-app"}
 
-![task3.1]()
 
 ### Errors across all containers
 {job="docker"} |= "error"
 
-![task3.2]()
-
 ### HTTP request logs from the app
 {container_name="notes-app"} |= "GET"
 
-![task3.3]()
 
 ### Rate of log lines per container
 sum by (container_name) (rate({job="docker"}[5m]))
 
-![task3.4]()
+![task3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/cdd7032aee2a5b6ee77e524ee6919abb34121e7d/2026/day-77/images/task%203.JPG)
+
+![task3.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/cdd7032aee2a5b6ee77e524ee6919abb34121e7d/2026/day-77/images/task%203.2.JPG)
+
+![task3.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/cdd7032aee2a5b6ee77e524ee6919abb34121e7d/2026/day-77/images/task%203.4.JPG)
+
 ```
 
 Check Promtail's targets to see which log files it is watching:
 ```bash
 curl -s http://localhost:9080/targets | head -30
 ```
-![task3.5]()
+
 
 Compare `promtail/promtail-config.yml` from the reference repo with yours from Day 75.
 - I replaced `static_configs` with `docker_sd_configs` to collect container-specific labels.
@@ -235,7 +233,6 @@ docker logs otel-collector 2>&1 | grep -A 20 "GET /api/notes"
 
 You should see both spans with their attributes, the parent-child relationship, and timing data.
 
-![task4]()
 
 Compare `otel-collector/otel-collector-config.yml` from the reference repo with yours from Day 76.
 
@@ -284,7 +281,7 @@ Save the dashboard as "Production Overview -- Observability Stack".
 
 Set the dashboard time range to "Last 30 minutes" and enable auto-refresh (every 10s).
 
-![task5]()
+![task5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/cdd7032aee2a5b6ee77e524ee6919abb34121e7d/2026/day-77/images/task%205.JPG)
 ---
 
 ### Task 6: Compare Your Stack with the Reference and Document
@@ -339,7 +336,7 @@ docker compose down -v
 
 The `-v` flag removes named volumes (Prometheus data, Grafana data, Loki data). Only use this if you are done exploring.
 
-![task6]()
+
 ---
 
 
