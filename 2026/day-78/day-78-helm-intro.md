@@ -42,7 +42,7 @@ kind create cluster --config setup-k8s/kind-config.yml
 
 This creates a cluster with 1 control plane and 2 worker nodes.
 
-![task 2]()
+![task 2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%202.JPG)
 
 **Install Helm:**
 ```bash
@@ -61,13 +61,13 @@ Confirm Helm can talk to your cluster:
 kubectl cluster-info
 helm list
 ```
-![task 2.1]()
+![task 2.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%202.1.JPG)
 
 **Explore the raw manifests you will eventually replace with Helm:**
 ```bash
 ls k8s/
 ```
-![task 2.2]()
+![task 2.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%202.2.JPG)
 
 ```
 bankapp-deployment.yml   configmap.yml   gateway.yml   mysql-deployment.yml
@@ -97,7 +97,7 @@ Search for MySQL:
 helm search repo stable/mysql
 ```
 
-![taSK 3]()
+![taSK 3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%203.JPG)
 
 **Deploy MySQL with the same config the AI-BankApp expects:**
 ```bash
@@ -123,7 +123,7 @@ helm install bankapp-mysql stable/mysql \
   --set persistence.size=5Gi
 ```
 
-![task 3.1]()
+![task 3.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%203.1.JPG)
 
 Compare this single command to the raw manifest approach which needs `mysql-deployment.yml` + `secrets.yml` + `pvc.yml` + `pv.yml` + `service.yml`. Helm handles all of it.
 
@@ -139,7 +139,7 @@ kubectl get pvc -l app=bankapp-mysql
 kubectl get secret -l app=bankapp-mysql
 ```
 
-![task 3.2]()
+![task 3.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%203.2.JPG)
 
 Verify MySQL is running:
 ```bash
@@ -150,7 +150,7 @@ kubectl exec -it bankapp-mysql-5684979986-qc9ps -- mysql -uroot -pTest@123 -e "S
 
 You should see `bankappdb` in the output.
 
-![task 3.3]()
+![task 3.3](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%203.3.JPG)
 
 ---
 
@@ -204,14 +204,14 @@ Deploy with the values file:
 helm install bankapp-mysql-v2 stable/mysql -f mysql-values.yaml
 ```
 
-![task 4]()
+![task 4](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%204.JPG)
 
 **To see all configurable values for a chart:**
 ```bash
 # helm show values bitnami/mysql | head -80
 helm show values stable/mysql | head -80
 ```
-![task 4.1]()
+![task 4.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%204.1.JPG)
 
 This is your reference for every knob you can turn. Notice how the chart supports metrics, replication, custom init scripts, and dozens more options -- all through values.
 
@@ -219,7 +219,7 @@ This is your reference for every knob you can turn. Notice how the chart support
 ```bash
 helm uninstall bankapp-mysql-v2
 ```
-![task 4.2]()
+![task 4.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%204.2.JPG)
 
 ---
 
@@ -240,13 +240,13 @@ helm upgrade bankapp-mysql stable/mysql \
 
 ```
 
-![task 5]()
+![task 5](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%205.JPG)
 
 Check the revision history:
 ```bash
 helm history bankapp-mysql
 ```
-![task 5.1]()
+![task 5.1](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%205.1.JPG)
 
 You should see revision 1 (original) and revision 2 (metrics enabled).
 
@@ -262,7 +262,8 @@ helm history bankapp-mysql
 
 Revision 3 appears -- a rollback to revision 1.
 
-![task 5.2]()
+![task 5.2](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%205.2.JPG)
+
 
 **Compare this to raw manifests:** With `kubectl apply`, there is no built-in rollback. You would have to `git revert` or manually re-apply old YAML. Helm gives you `helm rollback` out of the box.
 
@@ -333,6 +334,6 @@ helm uninstall bankapp-mysql
 rm -rf mysql/
 ```
 
-![task 6]()
+![task 6](https://github.com/ganeshkhairedevops/90DaysOfDevOps/blob/dfe6478b9596f388ae5f311e4959e0faec04f9fd/2026/day-78/images/task%206.JPG)
 
 ---
