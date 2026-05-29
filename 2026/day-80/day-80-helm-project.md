@@ -488,8 +488,5 @@ kind delete cluster --name tws-cluster
 
 ---
 
-## Conclusion
-
-Congratulations on mastering Helm! You've gone from installing pre-built charts to creating your own production-ready chart with multi-environment support, hooks, and CI/CD integration. This is a huge milestone in your Kubernetes journey.
 
 
