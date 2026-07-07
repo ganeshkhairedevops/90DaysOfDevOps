@@ -102,7 +102,7 @@ kubectl version --client
 helm version
 ```
 
-![task 3](task3)
+<!-- ![task 3](task3) -->
 
 Configure AWS credentials:
 ```bash
@@ -112,7 +112,7 @@ aws configure
 # Verify
 aws sts get-caller-identity
 ```
-![task 3.1](task 3.1)
+<!--![task 3.1](task 3.1) -->
 
 Initialize and apply:
 ```bash
@@ -122,10 +122,10 @@ terraform init
 terraform plan
 ```
 
-![task 3.2](task 3.2)
+<!-- ![task 3.2](task 3.2) -->
 
 
-![task 3.3](task 3.3)
+<!-- ![task 3.3](task 3.3) -->
 
 Review the plan carefully. It will create:
 - 1 VPC with 9 subnets, NAT gateway, internet gateway
@@ -138,7 +138,7 @@ Review the plan carefully. It will create:
 ```bash
 terraform apply
 ```
-![task 3.4](task 3.4)
+<!-- ![task 3.4](task 3.4) -->
 
 
 This takes 15-20 minutes. While waiting, review the Terraform output for CloudFormation-like progress.
@@ -147,7 +147,7 @@ After completion, note the outputs:
 ```bash
 terraform output
 ```
-![task 3.5](task 3.5)
+<!-- ![task 3.5](task 3.5) -->
 
 ---
 
@@ -171,7 +171,7 @@ kubectl get nodes -o wide
 
 You should see 3 nodes with status `Ready`, instance type `t3.medium`, spread across 3 AZs.
 
-![task 4](task 4)
+<!-- ![task 4](task 4) -->
 
 Explore the cluster:
 ```bash
@@ -187,16 +187,16 @@ kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-ebs-csi-driver
 # Metrics server (enables kubectl top and HPA)
 kubectl top nodes
 ```
-![task 4.1](task 4.1)
+<!--![task 4.1](task 4.1) -->
 
-![task 4.2](task 4.2)
+<!--![task 4.2](task 4.2) -->
 
 Check ArgoCD is running:
 ```bash
 kubectl get pods -n argocd
 kubectl get svc -n argocd
 ```
-![task 4.3](task 4.3)
+<!--![task 4.3](task 4.3) -->
 
 Get the ArgoCD admin password:
 ```bash
@@ -207,12 +207,12 @@ Get the ArgoCD LoadBalancer URL:
 ```bash
 kubectl get svc -n argocd argocd-server -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
 ```
-![task 4.4](task 4.4)
+<!--![task 4.4](task 4.4) -->
 
 
 Open the URL in your browser and log in with `admin` and the password from above. You will use ArgoCD on Days 84-86.
 
-![task 4.5](task 4.5)
+<!--![task 4.5](task 4.5) -->
 
 ---
 
@@ -234,13 +234,13 @@ kubectl apply -f k8s/ollama-deployment.yml
 kubectl apply -f k8s/bankapp-deployment.yml
 kubectl apply -f k8s/hpa.yml
 ```
-![task 5](task5)
+<!--![task 5](task5) -->
 
 Watch the pods come up:
 ```bash
 kubectl get pods -n bankapp -w
 ```
-![task 5.1](task 5.1)
+<!--![task 5.1](task 5.1) -->
 
 The startup order is:
 1. MySQL starts and becomes healthy (15-30 seconds)
@@ -255,7 +255,7 @@ kubectl get pv
 
 You should see 5Gi and 10Gi EBS volumes in the correct AZs.
 
-![task 5.2](task 5.2)
+<!--![task 5.2](task 5.2) -->
 
 Once all pods are running, access the app:
 ```bash
@@ -264,15 +264,15 @@ kubectl port-forward svc/bankapp-service -n bankapp 8080:8080
 
 Open `http://localhost:8080` -- you should see the AI-BankApp login page. Register an account, log in, and try the AI chatbot.
 
-![task 5.3](task 5.3)
+<!--![task 5.3](task 5.3) -->
 
-![task 5.4](task 5.4)
+<!--![task 5.4](task 5.4) -->
 
 **Verify the HPA:**
 ```bash
 kubectl get hpa -n bankapp
 ```
-![task 5.5](task 5.5)
+<!--![task 5.5](task 5.5) -->
 
 ---
 
@@ -304,7 +304,7 @@ kubectl delete -f k8s/pv.yml
 kubectl delete -f k8s/namespace.yml
 ```
 
-![task 6](task 6)
+<!--![task 6](task 6) -->
 
 To destroy everything (do this at the end of Day 83 or if taking a break):
 ```bash
