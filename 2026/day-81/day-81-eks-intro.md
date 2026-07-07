@@ -89,7 +89,7 @@ node_max_count     = 5
 
 **Document:** Draw the architecture: VPC -> Subnets -> EKS Control Plane -> Node Group -> Pods
 
-![task 2](task 2)
+<!--![task 2](task 2) -->
 
 ---
 
