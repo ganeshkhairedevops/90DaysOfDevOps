@@ -329,3 +329,96 @@ The database is intact because the EBS volume persists independently of the pod.
 
 ---
 
+### Task 6: Explore HPA and Node Capacity
+The AI-BankApp's HPA scales pods between 2 and 4 based on CPU.
+
+```bash
+kubectl get hpa -n bankapp
+```
+
+Check resource usage across nodes:
+```bash
+kubectl top nodes
+kubectl top pods -n bankapp
+```
+<!-- ![task6](task6) -->
+
+
+Ollama is the heaviest consumer. If you scale BankApp to 4 pods, total CPU requests reach ~2.9 cores + system overhead.
+
+**Clean up the workload (keep the cluster for Day 83):**
+```bash
+kubectl delete -f k8s/gateway.yml 2>/dev/null
+kubectl delete -f k8s/hpa.yml
+kubectl delete -f k8s/bankapp-deployment.yml
+kubectl delete -f k8s/ollama-deployment.yml
+kubectl delete -f k8s/mysql-deployment.yml
+kubectl delete -f k8s/service.yml
+kubectl delete -f k8s/secrets.yml
+kubectl delete -f k8s/configmap.yml
+kubectl delete -f k8s/pvc.yml
+kubectl delete -f k8s/pv.yml
+kubectl delete -f k8s/namespace.yml
+```
+<!-- ![task6.1](task6.1) -->
+---
+
+**Gateway API architecture diagram**
+```
+Internet
+   ↓
+AWS NLB
+   ↓
+Gateway (bankapp-gateway)
+   ├── HTTP (80 → redirect to HTTPS)
+   └── HTTPS (443, TLS terminated)
+   ↓
+HTTPRoute (bankapp-route)
+   ↓
+Service (bankapp-service:8080)
+   ↓
+Pods (2–4 replicas)
+   ↓
+(Session affinity handled by Gateway via cookie OR Service via ClientIP)
+```
+
+
+**Comparison table: Gateway API vs Ingress**
+
+| Feature | Ingress | Gateway API |
+|---------|---------|-------------|
+| API maturity | Stable but limited | GA since Kubernetes 1.26 |
+| Traffic splitting | Not supported | Built-in (weighted backends) |
+| Header matching | Annotation-dependent | Native HTTPRoute rules |
+| Role separation | Single resource | GatewayClass (infra) -> Gateway (ops) -> HTTPRoute (dev) |
+| TLS management | Annotation-based | Native TLS config in Gateway listeners |
+| Session affinity | Not standardized | BackendTrafficPolicy (with Envoy) |
+
+
+**Why cookie-based session affinity?** 
+- The AI-BankApp uses Spring Security with form-based login. Without session affinity, a user's requests could hit different pods, and they would be logged out.
+- The `BANKAPP_AFFINITY` cookie ensures all requests from a user go to the same pod.
+
+**How cert-manager automates TLS certificates**
+1. cert-manager requests a certificate from Let's Encrypt
+2. Let's Encrypt sends an HTTP-01 challenge
+3. cert-manager creates a temporary HTTPRoute to respond to the challenge
+4. Let's Encrypt verifies and issues the certificate
+5. cert-manager stores the certificate in the `bankapp-tls` Secret
+6. The Gateway uses this Secret for HTTPS termination
+
+**EBS storage flow**
+- StorageClass → PVC → PV (provisioned by CSI) → EBS Volume (created in AWS) → Pod mounts PVC
+
+**Resource budget table for the AI-BankApp on EKS**
+
+| Component | CPU Request | Memory Request | Instances |
+|-----------|-----------|---------------|-----------|
+| BankApp | 250m | 256Mi | 2-4 pods |
+| MySQL | 250m | 256Mi | 1 pod |
+| Ollama | 900m | 2Gi | 1 pod |
+| Init containers | 50m | 32Mi | temporary |
+| System pods | ~500m | ~500Mi | per node |
+| **Total available** | **6000m (3 nodes)** | **12Gi (3 nodes)** | |
+
+---
