@@ -1,0 +1,268 @@
+# Day 82 -- EKS Networking with Gateway API and Persistent Storage
+---
+
+## Challenge Tasks
+
+### Task 1: Understand Gateway API vs Ingress
+The AI-BankApp uses the Gateway API instead of the traditional Ingress resource. Research the differences:
+
+| Feature | Ingress | Gateway API |
+|---------|---------|-------------|
+| API maturity | Stable but limited | GA since Kubernetes 1.26 |
+| Traffic splitting | Not supported | Built-in (weighted backends) |
+| Header matching | Annotation-dependent | Native HTTPRoute rules |
+| Role separation | Single resource | GatewayClass (infra) -> Gateway (ops) -> HTTPRoute (dev) |
+| TLS management | Annotation-based | Native TLS config in Gateway listeners |
+| Session affinity | Not standardized | BackendTrafficPolicy (with Envoy) |
+
+**The AI-BankApp's Gateway architecture:**
+```
+Internet
+   ↓
+AWS NLB
+   ↓
+Gateway (bankapp-gateway)
+   ├── HTTP (80 → redirect to HTTPS)
+   └── HTTPS (443, TLS terminated)
+   ↓
+HTTPRoute (bankapp-route)
+   ↓
+Service (bankapp-service:8080)
+   ↓
+Pods (2–4 replicas)
+   ↓
+(Session affinity handled by Gateway via cookie OR Service via ClientIP)
+```
+
+---
+
+### Task 2: Install Envoy Gateway
+Envoy Gateway is the Gateway API implementation the AI-BankApp uses.
+
+Install via Helm:
+```bash
+helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
+  --version v1.4.0 \
+  -n envoy-gateway-system --create-namespace \
+  --wait
+```
+
+<!-- ![task2](task2) -->
+
+Verify:
+```bash
+kubectl get pods -n envoy-gateway-system
+kubectl get gatewayclass
+```
+
+<!-- ![task2.1](task2.1) -->
+
+- `kubectl get gatewayclass` shows no resources because Envoy Gateway does not automatically create a `GatewayClass` during installation. A `GatewayClass` must either be enabled via Helm configuration or created manually
+
+
+You should see the `envoy-gateway` GatewayClass registered.
+
+Now install the Gateway API CRDs if not already present:
+```bash
+kubectl get crd gateways.gateway.networking.k8s.io 2>/dev/null || \
+  kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/standard-install.yaml
+```
+
+<!-- ![task2.2](task2.2) -->
+
+---
+
+### Task 3: Deploy the AI-BankApp with Gateway API
+Make sure the app is deployed (from Day 81):
+```bash
+kubectl get pods -n bankapp
+```
+<!-- ![task3](task3) -->
+
+If not running, redeploy the core manifests:
+```bash
+cd AI-BankApp-DevOps
+kubectl apply -f k8s/namespace.yml
+kubectl apply -f k8s/pv.yml
+kubectl apply -f k8s/pvc.yml
+kubectl apply -f k8s/configmap.yml
+kubectl apply -f k8s/secrets.yml
+kubectl apply -f k8s/mysql-deployment.yml
+kubectl apply -f k8s/service.yml
+kubectl apply -f k8s/ollama-deployment.yml
+kubectl apply -f k8s/bankapp-deployment.yml
+kubectl apply -f k8s/hpa.yml
+```
+
+**Now study and apply the Gateway configuration.**
+
+Open `k8s/gateway.yml` and understand each resource:
+
+**1. GatewayClass** -- defines which controller handles Gateways:
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: envoy-gateway
+spec:
+  controllerName: gateway.envoyproxy.io/gatewayclass-controller
+```
+
+**2. Gateway** -- creates the actual load balancer with listeners:
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: bankapp-gateway
+  namespace: bankapp
+spec:
+  gatewayClassName: envoy-gateway
+  listeners:
+    - name: http
+      protocol: HTTP
+      port: 80
+    - name: https
+      protocol: HTTPS
+      port: 443
+      hostname: <your-ip>.nip.io
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: bankapp-tls
+```
+
+When this is applied, Envoy Gateway creates an AWS NLB (Network Load Balancer) automatically.
+
+**3. HTTPRoute** -- routes traffic to the BankApp service:
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: bankapp-route
+  namespace: bankapp
+spec:
+  parentRefs:
+    - name: bankapp-gateway
+      sectionName: https
+    - name: bankapp-gateway
+      sectionName: http
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: bankapp-service
+          port: 8080
+```
+**4. BackendTrafficPolicy** -- session persistence via cookies:
+```yaml
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy
+metadata:
+  name: bankapp-session
+  namespace: bankapp
+spec:
+  targetRefs:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      name: bankapp-route
+  loadBalancer:
+    type: ConsistentHash
+    consistentHash:
+      type: Cookie
+      cookie:
+        name: BANKAPP_AFFINITY
+        ttl: 3600s
+```
+
+Apply the Gateway configuration:
+```bash
+kubectl apply -f k8s/gateway.yml
+```
+
+<!-- ![task3.1](task3.1) -->
+
+Wait for the NLB to be provisioned:
+```bash
+kubectl get gateway -n bankapp -w
+```
+
+<!-- ![task3.2](task3.2) -->
+
+Get the external IP:
+```bash
+export GATEWAY_IP=$(kubectl get gateway bankapp-gateway -n bankapp -o jsonpath='{.status.addresses[0].value}')
+echo "App URL: http://$GATEWAY_IP"
+```
+
+<!-- ![task3.3](task3.3) -->
+
+Test access:
+```bash
+curl -v http://$GATEWAY_IP
+```
+<!-- ![task3.4](task3.4) -->
+
+---
+
+### Task 4: Set Up TLS with cert-manager
+The AI-BankApp uses cert-manager with Let's Encrypt for automatic HTTPS certificates.
+
+Install cert-manager:
+```bash
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
+
+helm install cert-manager jetstack/cert-manager \
+  -n cert-manager --create-namespace \
+  --set crds.enabled=true \
+  --wait
+```
+
+
+<!-- ![task4](task4) -->
+
+Verify:
+```bash
+kubectl get pods -n cert-manager
+```
+
+<!-- ![task4.1](task4.1) -->
+
+Study and apply the ClusterIssuer from `k8s/cert-manager.yml`:
+```yaml
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: your-email@example.com
+    privateKeySecretRef:
+      name: letsencrypt-account-key
+    solvers:
+      - http01:
+          gatewayHTTPRoute:
+            parentRefs:
+              - group: gateway.networking.k8s.io
+                kind: Gateway
+                name: bankapp-gateway
+                namespace: bankapp
+```
+
+
+To use this, you need a hostname that points to your NLB IP. The AI-BankApp uses `nip.io` for quick DNS:
+```bash
+export HOSTNAME="${GATEWAY_IP}.nip.io"
+echo "HTTPS URL: https://$HOSTNAME"
+```
+
+Update the Gateway hostname and apply:
+```bash
+# For learning: you can skip TLS and just use HTTP
+# For production: update gateway.yml with your hostname and apply cert-manager.yml
+```
+<!-- ![task4.2](task4.2) -->
+---
