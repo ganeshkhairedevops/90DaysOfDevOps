@@ -266,3 +266,66 @@ Update the Gateway hostname and apply:
 ```
 <!-- ![task4.2](task4.2) -->
 ---
+
+### Task 5: Understand EBS Persistent Storage in Action
+The AI-BankApp uses EBS volumes for MySQL (5Gi) and Ollama (10Gi). Study how they work on EKS.
+
+Check the storage setup:
+```bash
+# StorageClass
+kubectl get storageclass gp3
+
+# PVCs
+kubectl get pvc -n bankapp
+
+# PVs (dynamically provisioned)
+kubectl get pv
+```
+
+Output should look like:
+```
+NAME                      STATUS   VOLUME         CAPACITY   STORAGECLASS
+mysql-pvc                 Bound    pvc-abc123...  5Gi        gp3
+ollama-pvc                Bound    pvc-def456...  10Gi       gp3
+```
+
+<!-- ![task5](task5) -->
+
+**Find the actual EBS volumes in AWS:**
+```bash
+aws ec2 describe-volumes \
+  --region us-west-2 \
+  --filters "Name=tag:kubernetes.io/cluster/bankapp-eks,Values=owned" \
+  --query "Volumes[*].{ID:VolumeId,Size:Size,AZ:AvailabilityZone,State:State,Tags:Tags}" \
+  --output table
+```
+
+<!-- ![task5.1](task5.1) -->
+
+**Key EBS concepts on EKS:**
+- `WaitForFirstConsumer` -- the volume is created in the same AZ as the pod that claims it
+- `ReadWriteOnce` -- EBS can only attach to one node at a time (MySQL and Ollama use Recreate strategy because of this)
+- `gp3` -- latest generation SSD, 3000 IOPS baseline, cheaper than gp2
+- `allowVolumeExpansion: true` -- you can grow volumes without recreating them
+
+**Test persistence** -- delete the MySQL pod and watch it come back with data intact:
+```bash
+# Check current MySQL data
+kubectl exec -n bankapp deploy/mysql -- mysql -uroot -pTest@123 -e "SHOW DATABASES;"
+
+# Delete the pod
+kubectl delete pod -n bankapp -l app=mysql
+
+# Watch it recreate
+kubectl get pods -n bankapp -l app=mysql -w
+
+# Verify data survived
+kubectl exec -n bankapp deploy/mysql -- mysql -uroot -pTest@123 -e "SHOW DATABASES;"
+```
+
+The database is intact because the EBS volume persists independently of the pod.
+
+<!-- ![task5.2](task5.2) -->
+
+---
+
